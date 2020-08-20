@@ -5,10 +5,9 @@ using UnityEngine;
 public class ib_Test : MonoBehaviour
 {
 
-    GameObject heuballen;
-    GameObject moehre;
-    GameObject kiste;
-    GameObject schaf;
+
+    public GameObject moehre;
+
 
 
     // Start is called before the first frame update
@@ -16,10 +15,17 @@ public class ib_Test : MonoBehaviour
     {
         Debug.Log("Start Test-Script Isabell Buerkner");
 
-        schaf = GameObject.CreatePrimitive(PrimitiveType.Cube); schaf.name = "schafRudi";
-        moehre = GameObject.CreatePrimitive(PrimitiveType.Sphere); moehre.name = "moehre";
+        moehre = GameObject.CreatePrimitive(PrimitiveType.Sphere); moehre.name = "carrot";
 
         moehre.transform.position +=  new Vector3(2, 0, 2f);
+
+    /*
+        Mesh carrotMesh = Resources.Load("carrot", Mesh);
+        foreach(GameObject carrot in Models) {
+        carrot.GetComponent<MeshFilter>().mesh = carrotMesh;  
+        } */
+        //  Instantiate(myPrefab, new Vector3(0f,0f,0f), Quaternion.identity);
+
 
 
     }

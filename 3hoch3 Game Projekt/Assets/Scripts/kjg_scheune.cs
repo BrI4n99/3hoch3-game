@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,45 +13,54 @@ public class kjg_scheune : MonoBehaviour
     List<Vector3> normalsWand = new List<Vector3>(); //Liste für Normalen
     List<Vector2> uvScheune = new List<Vector2>(); //Liste für UV-Koordinaten
 
+    tl_sheep_script sheep; 
+
     void scheuneErstellen()
     {
         //----------------------------------VERTICES----------------------------------------
+        int x = 12;
+        int y = 9;
+        int z = 15;
+
+        float dx = 12.2f;
+        int dy = 15;
+        float dz = 15.2f;
 
         //Vorne
-        verticesWand.Add(new Vector3(-2, 3, 0));        // oben vorne links        0
-        verticesWand.Add(new Vector3(2, 3, 0));         // oben vorne rechts       1
-        verticesWand.Add(new Vector3(-2, 0, 0));        // unten vorne links       2  
-        verticesWand.Add(new Vector3(2, 0, 0));         // unten vorne rechts      3
+        verticesWand.Add(new Vector3(-x, y, 0));        // oben vorne links        0
+        verticesWand.Add(new Vector3(x, y, 0));         // oben vorne rechts       1
+        verticesWand.Add(new Vector3(-x, 0, 0));        // unten vorne links       2  
+        verticesWand.Add(new Vector3(x, 0, 0));         // unten vorne rechts      3
 
         //Hinten
-        verticesWand.Add(new Vector3(-2, 3, 5));        // oben hinten links       4
-        verticesWand.Add(new Vector3(2, 3, 5));         // oben hinten rechts      5
-        verticesWand.Add(new Vector3(-2, 0, 5));        // unten hinten links      6
-        verticesWand.Add(new Vector3(2, 0, 5));         // unten hinten rechts     7 
+        verticesWand.Add(new Vector3(-x, y, z));        // oben hinten links       4
+        verticesWand.Add(new Vector3(x, y, z));         // oben hinten rechts      5
+        verticesWand.Add(new Vector3(-x, 0, z));        // unten hinten links      6
+        verticesWand.Add(new Vector3(x, 0, z));         // unten hinten rechts     7 
 
         //Rechts
-        verticesWand.Add(new Vector3(2, 3, 0));         // oben vorne rechts       8 (1)
-        verticesWand.Add(new Vector3(2, 0, 0));         // unten vorne rechts      9 (3)
-        verticesWand.Add(new Vector3(2, 3, 5));         // oben hinten rechts     10 (5)
-        verticesWand.Add(new Vector3(2, 0, 5));         // unten hinten rechts    11 (7)
+        verticesWand.Add(new Vector3(x, y, 0));         // oben vorne rechts       8 (1)
+        verticesWand.Add(new Vector3(x, 0, 0));         // unten vorne rechts      9 (3)
+        verticesWand.Add(new Vector3(x, y, z));         // oben hinten rechts     10 (5)
+        verticesWand.Add(new Vector3(x, 0, z));         // unten hinten rechts    11 (7)
 
         //Links
-        verticesWand.Add(new Vector3(-2, 3, 0));        // oben vorne links       12 (0)
-        verticesWand.Add(new Vector3(-2, 0, 0));        // unten vorne links      13 (2)
-        verticesWand.Add(new Vector3(-2, 3, 5));        // oben hinten links      14 (4)
-        verticesWand.Add(new Vector3(-2, 0, 5));        // unten hinten links     15 (6)
+        verticesWand.Add(new Vector3(-x, y, 0));        // oben vorne links       12 (0)
+        verticesWand.Add(new Vector3(-x, 0, 0));        // unten vorne links      13 (2)
+        verticesWand.Add(new Vector3(-x, y, z));        // oben hinten links      14 (4)
+        verticesWand.Add(new Vector3(-x, 0, z));        // unten hinten links     15 (6)
 
         //Dach links
-        verticesWand.Add(new Vector3(-2.2f, 3, -0.2f)); // oben vorne links       16 (0)
-        verticesWand.Add(new Vector3(-2.2f, 3, 5.2f));  // oben hinten links      17 (4)
-        verticesWand.Add(new Vector3(0, 5, -0.2f));     // oben mitte vorne       18 (8)
-        verticesWand.Add(new Vector3(0, 5, 5.2f));      // oben mitte hinten      19 (9) 
+        verticesWand.Add(new Vector3(-dx, y, -0.2f)); // oben vorne links       16 (0)
+        verticesWand.Add(new Vector3(-dx, y, dz));  // oben hinten links      17 (4)
+        verticesWand.Add(new Vector3(0, dy, -0.2f));     // oben mitte vorne       18 (8)
+        verticesWand.Add(new Vector3(0, dy, dz));      // oben mitte hinten      19 (9) 
 
         //Dach rechts
-        verticesWand.Add(new Vector3(0, 5, -0.2f));     // oben mitte vorne       20 (8)
-        verticesWand.Add(new Vector3(0, 5, 5.2f));      // oben mitte hinten      21 (9) 
-        verticesWand.Add(new Vector3(2.2f, 3, -0.2f));  // oben vorne rechts      22 (1)
-        verticesWand.Add(new Vector3(2.2f, 3, 5.2f));   // oben hinten rechts     23 (5)
+        verticesWand.Add(new Vector3(0, dy, -0.2f));     // oben mitte vorne       20 (8)
+        verticesWand.Add(new Vector3(0, dy, dz));      // oben mitte hinten      21 (9) 
+        verticesWand.Add(new Vector3(dx, y, -0.2f));  // oben vorne rechts      22 (1)
+        verticesWand.Add(new Vector3(dx, y, dz));   // oben hinten rechts     23 (5)
 
         //----------------------------------TRIANGLES----------------------------------------
 
@@ -178,8 +187,8 @@ public class kjg_scheune : MonoBehaviour
         //----------------------------------UV KOORDINATEN----------------------------------------
 
         //Seite1 Vorne
-        uvScheune.Add(new Vector2(0, 1));
-        uvScheune.Add(new Vector2(1, 1));
+        uvScheune.Add(new Vector2(0, 0.65f));
+        uvScheune.Add(new Vector2(0.65f, 0.65f));
         uvScheune.Add(new Vector2(0, 0));
         uvScheune.Add(new Vector2(1, 0));
 
@@ -202,10 +211,10 @@ public class kjg_scheune : MonoBehaviour
         uvScheune.Add(new Vector2(1, 0));
 
         //Seite 5 Dach links
-        uvScheune.Add(new Vector2(1, 0));
-        uvScheune.Add(new Vector2(0, 0));
+        uvScheune.Add(new Vector2(1, 0.7f));
+        uvScheune.Add(new Vector2(0.7f, 0.7f));
         uvScheune.Add(new Vector2(1, 1));
-        uvScheune.Add(new Vector2(0, 0));
+        uvScheune.Add(new Vector2(0.7f, 0.7f));
 
         //Seite 6 Dach rechts
         uvScheune.Add(new Vector2(0, 1));
@@ -215,6 +224,7 @@ public class kjg_scheune : MonoBehaviour
 
     }
 
+  
     // Start is called before the first frame update
     void Start()
     {
@@ -239,7 +249,7 @@ public class kjg_scheune : MonoBehaviour
         Texture textureScheune = Resources.Load("1") as Texture;
         rendScheune.material.mainTexture = textureScheune;*/
 
-        scheune.Clear();
+   /*     scheune.Clear();
 
         scheune.vertices = verticesWand.ToArray();
         scheune.triangles = trianglesWand.ToArray();
@@ -253,4 +263,5 @@ public class kjg_scheune : MonoBehaviour
     {
 
     }
-}
+} 
+*/

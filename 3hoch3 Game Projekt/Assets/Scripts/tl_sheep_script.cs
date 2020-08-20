@@ -16,9 +16,10 @@ public class tl_sheep_script : MonoBehaviour
     void Start()
     {
         controller = gameObject.AddComponent<CharacterController>();
-        controller.center = new Vector3(0f, 0.7f, 0.12f);
+        controller.center = new Vector3(0f, 0.71f, 0.12f);
         controller.radius = 0.64f;
         controller.height = 0f;
+        controller.minMoveDistance = 0f;
     }
 
     // Update is called once per frame
