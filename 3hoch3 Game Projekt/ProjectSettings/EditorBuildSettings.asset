@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/kjg-szene.unity
+    guid: 46c331b85b033b443b038c9cf9bb6e29
+  - enabled: 1
+    path: Assets/Scenes/kjg-draussen.unity
+    guid: dcd5eca56588f13499615aac00088074
   m_configObjects: {}

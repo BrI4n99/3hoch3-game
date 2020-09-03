@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3700223400367592983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3700223400367593064}
+  - component: {fileID: 3700223400367593065}
+  m_Layer: 0
+  m_Name: ib_abschnittGen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3700223400367593064
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3700223400367592983}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3700223400367593065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3700223400367592983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e445f9b448103e499d6a5b3ecf63f36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ground: {fileID: 6731806379086994984, guid: cfd1e3173fde5954eb18030bbff7def8, type: 3}
+  fence: {fileID: 4157495249527954545, guid: 5499a6f961a5ab6488eb41c1e5836f72, type: 3}
+  posZ: 0
+  heuLang:
+  - {fileID: 3203935726426651785, guid: 2696d54ee9b07324fbc614a1af035c1b, type: 3}
+  - {fileID: 3103565436389481880, guid: 1d19d00f0aba83a459520e669c9b8845, type: 3}
+  - {fileID: 6205322057778197059, guid: f9e6401c2d562314d8df8047578e16d9, type: 3}
+  heuKurz:
+  - {fileID: 7765450628694925847, guid: 58d6ee2355cd49641ac6f64f7de11145, type: 3}
+  - {fileID: 7147427174136595098, guid: 0d29b8a68d050e148970df2c6239900a, type: 3}
+  - {fileID: 286894463633737644, guid: 4917d8b16ab585a40b39036562b39110, type: 3}
+  - {fileID: 7748859344203483947, guid: f5764dd42635276498a30725e22746c7, type: 3}
+  hindernis:
+  - {fileID: 5890248105696565895, guid: 399a9f0a21058d34c8d146095749befc, type: 3}
+  - {fileID: 3583825929359850595, guid: d8ceb89df9d5ca34e91c859380fda75d, type: 3}
+  - {fileID: 2970434789334082749, guid: a9d56405e9f25d8449d67acc839b7f00, type: 3}
+  - {fileID: 4769934573395348306, guid: 45b5992fa4fb3714fb68ac59f1c8e4e6, type: 3}
+  - {fileID: 6803529937181524947, guid: 7148ec14a1e0dfb418650add6a086103, type: 3}
+  action:
+  - {fileID: 8588119381172092580, guid: d028439481ba6184c839e560e85520f5, type: 3}
+  - {fileID: 4443407812676005280, guid: 59f4752bde6b18a44847b2c3a02d255f, type: 3}

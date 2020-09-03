@@ -20,11 +20,11 @@ MonoBehaviour:
   m_Curves: {fileID: 0}
   m_Parent: {fileID: 11400000}
   m_Children:
-  - {fileID: -6381065623413690537}
+  - {fileID: -5469322252483100226}
   m_Clips: []
   m_Markers:
     m_Objects: []
---- !u!114 &-6381065623413690537
+--- !u!114 &-5469322252483100226
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -48,10 +48,10 @@ MonoBehaviour:
   - m_Version: 1
     m_Start: 0
     m_ClipIn: 0
-    m_Asset: {fileID: 6319618834064788526}
-    m_Duration: 9
+    m_Asset: {fileID: 130170748052638443}
+    m_Duration: 1
     m_TimeScale: 1
-    m_ParentTrack: {fileID: -6381065623413690537}
+    m_ParentTrack: {fileID: -5469322252483100226}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: 0
@@ -137,7 +137,7 @@ MonoBehaviour:
     m_Framerate: 60
   m_DurationMode: 0
   m_MarkerTrack: {fileID: 0}
---- !u!114 &6319618834064788526
+--- !u!114 &130170748052638443
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}

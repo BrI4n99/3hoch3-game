@@ -5,6 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - ObjectToPush
+  - explosion
+  - hayBale
+  - carrot
+  - ib_egg
+  - ib_basket
+  - ib_barrel
+  - ib_ground
+  - ib_CubeCollider1
+  - ib_CubeCollider2
   layers:
   - Default
   - TransparentFX
