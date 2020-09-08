@@ -14,6 +14,10 @@ TagManager:
   - ib_ground
   - ib_CubeCollider1
   - ib_CubeCollider2
+  - PlayerColl
+  - ib_CollCarrots
+  - ib_HinweisCarrot
+  - ib_Autsch
   layers:
   - Default
   - TransparentFX

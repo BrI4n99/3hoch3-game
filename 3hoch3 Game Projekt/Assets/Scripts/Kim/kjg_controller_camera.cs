@@ -45,7 +45,7 @@ public class kjg_controller_camera : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         headUp = true;
     }
-    //Ende Kamera von Kim Guddatkj
+    //Ende Kamera von Kim Guddat
     void Update()
     {
         sheepOnGround = controller.isGrounded;

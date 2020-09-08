@@ -5,9 +5,15 @@ using UnityEngine;
 public class kjg_uebersicht : MonoBehaviour
 {
     // Start is called before the first frame update
+
+    public GameObject timeline;
+    public GameObject cameraUebersicht;
     void Start()
     {
-        
+        if (kjg_draussen_drinnen.warDraussen == true) {
+           timeline.SetActive(false);
+            cameraUebersicht.SetActive(false);
+        }
     }
 
     // Update is called once per frame

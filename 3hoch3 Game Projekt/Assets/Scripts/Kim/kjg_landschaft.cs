@@ -11,9 +11,11 @@ public class kjg_landschaft : MonoBehaviour
 
     Vector3[] tVertices;
     int[] tTriangles;
+    Vector2[] tUV;
 
     int xSize = 60;
     int zSize = 60;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,27 +37,37 @@ public class kjg_landschaft : MonoBehaviour
         tCollider.sharedMesh = terrain;
 
         createTerrain();
-        updateMesh();
 
-        terrainObject.transform.position -= new Vector3(60,1f,0);
+        terrain.Clear();
+
+        terrain.vertices = tVertices;
+        terrain.triangles = tTriangles;
+        terrain.uv = tUV;
+        terrain.RecalculateNormals();
+        tCollider.sharedMesh = terrain;
+
+        terrainObject.transform.position -= new Vector3(60,0.5f,0);
     }
 
     float hoehe;
     void createTerrain() {
+
+        //---------------------------------------Punkte hinzufügen-----------------------------------------
         tVertices = new Vector3[(xSize +1) * (zSize+1)];
-;
+
         for (int z =0, i = 0; z <= zSize; z++) {
             for (int x = 0; x <= xSize; x++) {
-                hoehe = Mathf.PerlinNoise(x*0.4f, z *0.4f)* 2f;
+                hoehe = Mathf.PerlinNoise(x * 0.2f, z * 0.2f);
                 tVertices[i] = new Vector3(x, hoehe, z);
                 i++;
             }
         }
 
         int vertCount = 0; //an welchem Vertex man grad ist
-        int triangleCount = 0; //wieviele Trianglex man hat
-        tTriangles = new int[xSize * zSize * 6];
+        int triangleCount = 0; //wieviele Triangles man hat
+        tTriangles = new int[xSize * zSize * 6]; // Für jedes Viereck, 6 Punkte
 
+        //----------------------------------------Triangles erstellen------------------------------------
         for (int x = 0; x < xSize; x++) {
             for(int z = 0; z < zSize; z++)
             {
@@ -71,15 +83,18 @@ public class kjg_landschaft : MonoBehaviour
             }
             vertCount++;
         }
+
+        //-------------------------------------UV-Koordinaten-------------------------------------------
+        /*tUV = new Vector2[(xSize + 1) * (zSize + 1)];
+        int countUV = 0; 
+
+        for(int i = 0; i <= xSize; i ++){
+            tUV[i] = new Vector2(0, 0);
+            tUV[i + 1] = new Vector2(0, 1);
+            tUV[i + 2] = new Vector2(0, 1);
+            tUV[i + 3] = new Vector2(1, 1);
+            countUV += 4;
+        }*/
+
    }
-
-    void updateMesh() {
-
-        terrain.Clear();
-
-        terrain.vertices = tVertices;
-        terrain.triangles = tTriangles;
-        terrain.RecalculateNormals();
-        tCollider.sharedMesh = terrain;
-    }
 }

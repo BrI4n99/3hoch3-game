@@ -7,9 +7,11 @@ public class kjg_tuer : MonoBehaviour
 {
     public GameObject keys;
     public GameObject tuer;
+    public static bool offen;
         
     [SerializeField]
     kjg_key keyScript;
+
 
     IEnumerator tuerAuf() {
         while(tuer.transform.position.y <= 3.5f)
@@ -24,6 +26,7 @@ public class kjg_tuer : MonoBehaviour
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.name == "SheepWhite" && kjg_key.hasKey) {
             StartCoroutine(tuerAuf());
+            offen = true;
         }
     }
     

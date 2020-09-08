@@ -7,11 +7,11 @@ public class kjg_kuh : MonoBehaviour
 {
     public GameObject sheep;
     public float targetDistance;
-    public float allowedDistance = 5;
-    //bv  public GameObject npc;
+    public float allowedDistance = 4;
     public float fspeed;
-    public RaycastHit shot;
+    public RaycastHit shot; //für die Distanz zu Sheep
     private bool folgen = false;
+    public static bool hasKuh;
 
     //Tiere sollen durcheinander hüpfen und sich zum Ausgang drehen
     bool up;
@@ -40,13 +40,13 @@ public class kjg_kuh : MonoBehaviour
     {
         if (other.gameObject.name == "SheepWhite") {
             folgen = true;
+            hasKuh = true;
         }
        
     }
 
     float sec;
    
-    // Update is called once per frame
     void Update()
     {
         //Damit Kuh dem Schaf folgt
@@ -57,7 +57,7 @@ public class kjg_kuh : MonoBehaviour
                 targetDistance = shot.distance;
                 if (targetDistance >= allowedDistance)
                 {
-                    fspeed = 0.02f;
+                    fspeed = 0.3f;
                     transform.position = Vector3.MoveTowards(transform.position, sheep.transform.position, fspeed);
                 }
                 else
@@ -71,7 +71,7 @@ public class kjg_kuh : MonoBehaviour
 
         sec = 0.6f;
         //Hovering / Floating
-        if (!folgen) {
+        if (!folgen && kjg_tuer.offen) {
             if (up)
             {
                 StartCoroutine(jumpUp(sec));
