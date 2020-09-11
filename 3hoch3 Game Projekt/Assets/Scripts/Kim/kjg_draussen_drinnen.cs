@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class kjg_draussen_drinnen : MonoBehaviour
 {
+    //Szenenwechsel von draußen zu drinnen
+
     public static bool warDraussen;
     private void OnTriggerEnter(Collider other)
     {

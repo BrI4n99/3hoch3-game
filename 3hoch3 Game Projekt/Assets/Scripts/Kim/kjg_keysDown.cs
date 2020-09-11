@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class kjg_keysDown : MonoBehaviour
 {
+    //Schlüssel herunterschweben
 
     public GameObject keys;
     IEnumerator keyDown()

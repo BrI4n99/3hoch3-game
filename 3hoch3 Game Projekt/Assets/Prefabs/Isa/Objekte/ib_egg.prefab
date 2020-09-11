@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basketWithEggs: {fileID: 2755498546879496885, guid: a23b5bc1af603014c900d3bf551e5be1,
     type: 3}
-  klingeln: {fileID: 6017463939552057674}
+  klingeln: {fileID: 8300000, guid: 9c56fc44831c2794f82be3dc7424d4be, type: 3}
 --- !u!54 &-3179127397321978139
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -155,7 +155,7 @@ AudioSource:
   rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
-  BypassReverbZones: 0
+  BypassReverbZones: 1
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:

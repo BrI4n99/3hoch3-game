@@ -41,7 +41,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 757f378dc6c7e8840ab1f0a01953be50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sheep: {fileID: 0}
+  sheep: {fileID: 1965851562501010, guid: e82139b3bae6212439ea1e85ad29678b, type: 3}
   targetDistance: 1
   allowedDistance: 2
   fspeed: 0.5
@@ -54,7 +54,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1287295899898638, guid: 9ec060093457ad84ca2733cb15c2c41e, type: 3}
       propertyPath: m_Name
-      value: CowBlW
+      value: CowBlW Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4054502789990554, guid: 9ec060093457ad84ca2733cb15c2c41e, type: 3}
       propertyPath: m_LocalPosition.x

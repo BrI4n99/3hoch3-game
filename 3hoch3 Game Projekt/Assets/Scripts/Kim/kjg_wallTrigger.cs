@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class kjg_wallTrigger : MonoBehaviour
 {
+    //Trigger, damit die "Random" Wände erstellt werden 
 
     public static bool trigger;
     public static int a, b;

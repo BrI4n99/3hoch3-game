@@ -38,7 +38,7 @@ public class ib_carrot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        sheepRot = sheep.transform.rotation;
+        //sheepRot = sheep.transform.rotation;
 
         if (!touch)
         {

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class kjg_landschaft : MonoBehaviour
 {
+    //Landschaft für draußen erstellen
+
     Mesh terrain;
     GameObject terrainObject;
     public Material matLandschaft;
@@ -16,7 +18,7 @@ public class kjg_landschaft : MonoBehaviour
     int xSize = 60;
     int zSize = 60;
 
-    // Start is called before the first frame update
+ 
     void Start()
     {
         terrain = new Mesh();

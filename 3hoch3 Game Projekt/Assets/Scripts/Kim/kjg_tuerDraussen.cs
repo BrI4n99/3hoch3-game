@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class kjg_tuerDraussen : MonoBehaviour
 {
+    //Szenenwechesl von drinnen nach draußen
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "SheepWhite") {

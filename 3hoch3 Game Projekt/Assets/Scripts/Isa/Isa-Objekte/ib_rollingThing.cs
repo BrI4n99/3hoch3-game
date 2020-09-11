@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ib_rollingThing : MonoBehaviour
 {
+
+   IB_Star stars;
+
     GameObject[] MyExplosion;      // Array für alle zu löschenden Objekte
     public AudioSource rolling;
     public AudioSource puff;
@@ -19,11 +23,32 @@ public class ib_rollingThing : MonoBehaviour
 
     bool first;
 
+
+    /// ////////////////////////////////////////
+
+    public Canvas canvas;
+    private static Image star;
+    private bool zoom;
+    public Vector3 scale = new Vector3(1.5f, 1.5f, 1.5f);
+
+    //////////////////
+
+
+
     // Start is called before the first frame update
     void Start()
     {
+        stars = IB_Star.Instance;
+
+
         first = true;
         //puffSound = puff.clip;
+
+        canvas = GameObject.FindGameObjectWithTag("ib_LevelUI").GetComponent<Canvas>();
+
+        star = canvas.transform.GetChild(0).GetComponent<Image>();
+
+
     }
 
     // Update is called once per frame
@@ -40,9 +65,6 @@ public class ib_rollingThing : MonoBehaviour
             Collider[] nearObjects = Physics.OverlapSphere(gameObject.transform.position, 50f);
             foreach (Collider eines in nearObjects)
             {
-
-             
-
                 if (eines.gameObject.tag == "explosion")
                 {
                     // Pyramide zum Einsturz bringen
@@ -72,7 +94,9 @@ public class ib_rollingThing : MonoBehaviour
                     bonus += 250;
                     Debug.Log("Bonuspunkte: 'Yeees, der Weg ist frei.'");
                     first = false;
+                   
                 }
+                
                 Debug.Log("Partikel");
                 partikel = Instantiate(staub, transform.position, Quaternion.identity);
                 AudioSource.PlayClipAtPoint(puffSound, transform.position);
@@ -97,13 +121,64 @@ public class ib_rollingThing : MonoBehaviour
         partikel.SetActive(false);
         Destroy(partikel);
         Debug.Log("WaitingFor10SEC");
+        //stars.StartCoroutine(stars.starZoom());
+
+        //ib_star obj = Camera.main.GetComponent<ib_star>();
+        //Coroutine example = StartCoroutine(Camera.main.GetComponent<ib_star>().starZoom());
         yield return new WaitForSeconds(2f);
+       
         Destroy(eines.gameObject, 2.5f);
 
     }
+    /*
+    public static IEnumerator starZoom()
+    {
+        Debug.Log("wieder kleiner machen");
+
+        
+          Vector3 newScale = star.transform.localScale;
+          newScale *= 1.01f;
+          star.transform.localScale = newScale;
+          yield return new WaitForSeconds(0.1f);
+
+          Debug.Log("wieder sdsajdsad machen");
+          newScale = star.transform.localScale;
+          newScale *= 1.01f;
+          star.transform.localScale = newScale;
+          yield return new WaitForSeconds(0.1f);
 
 
 
+
+
+
+          Vector3 newScale = star.transform.localScale;
+          newScale *= 1.05f;
+          star.transform.localScale = newScale;
+          yield return new WaitForSeconds(0.05f);
+
+
+
+          newScale = star.transform.localScale;
+          newScale *= 0.95f;
+          star.transform.localScale = newScale;
+          yield return new WaitForSeconds(0.05f);
+
+
+          newScale = star.transform.localScale;
+          newScale *= 1.05f;
+          star.transform.localScale = newScale;
+          yield return new WaitForSeconds(0.05f);
+
+
+          newScale = star.transform.localScale;
+          newScale *= 0.95f;
+          star.transform.localScale = newScale;
+          yield return new WaitForSeconds(0.05f);
+
+      
+
+}*/
 
 
 }

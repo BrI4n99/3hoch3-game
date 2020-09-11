@@ -18,6 +18,9 @@ TagManager:
   - ib_CollCarrots
   - ib_HinweisCarrot
   - ib_Autsch
+  - ib_LevelUI
+  - ib_endGround
+  - loose
   layers:
   - Default
   - TransparentFX

@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class kjg_tuer : MonoBehaviour
 {
+    
     public GameObject keys;
     public GameObject tuer;
     public static bool offen;
         
-    [SerializeField]
-    kjg_key keyScript;
+    //[SerializeField]
+    //kjg_key keyScript;
 
+    //Tür zu den Tieren öffnen
 
     IEnumerator tuerAuf() {
         while(tuer.transform.position.y <= 3.5f)

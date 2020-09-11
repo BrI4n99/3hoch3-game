@@ -11,7 +11,8 @@ public class ib_egg : MonoBehaviour
     bool hitEgg = false;
     int abzug = 0; 
     AudioSource rollingEgg;
-    public AudioSource klingeln; 
+    public AudioClip klingeln; 
+
 
     GameObject[] findBasket;
     Rigidbody rb;
@@ -39,7 +40,7 @@ public class ib_egg : MonoBehaviour
             Destroy(other, 0.1f);
             // Anstelle des Korbes Prefab "Korb-mit-Ei" einfügen
             GameObject newBasket = Instantiate(basketWithEggs, posBas, Quaternion.identity);
-            klingeln.Play();
+            AudioSource.PlayClipAtPoint(klingeln, transform.position);
 
             if (eggsCheck != true)
             {
@@ -62,12 +63,13 @@ public class ib_egg : MonoBehaviour
                 Debug.Log("It's a rolling Egg.");
                 rollingEgg = GetComponent<AudioSource>();
                 rb = GetComponent<Rigidbody>();
-                if (rb.velocity.magnitude >= 1)
+                rollingEgg.Play();
+            /*if (rb.velocity.magnitude >= 1)
                 {
                     rollingEgg.Play();
-                }
+                }*/
                 hitEgg = true;
-                Invoke("abziehen", 15F);                  
+                //Invoke("abziehen", 15F);                  
             }
 
 

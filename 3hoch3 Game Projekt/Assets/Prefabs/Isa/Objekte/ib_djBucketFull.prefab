@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1cb6df7eb19c18548a35ef6412d5254e, type: 2}
+  - {fileID: 2100000, guid: ca38b97ef5f429449aa4fad0ee5f7922, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -137,7 +137,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6ab243c10c5e0fe49973dcb31b86572e, type: 2}
+  - {fileID: 2100000, guid: ca38b97ef5f429449aa4fad0ee5f7922, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -168,7 +168,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8020058170545439820}
   m_Layer: 0
-  m_Name: djBucketFull
+  m_Name: ib_djBucketFull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

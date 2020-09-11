@@ -6,9 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/ib_GameUI.unity
+    guid: a9620521d83db70419852523a6c42ca7
+  - enabled: 1
+    path: Assets/Scenes/ib-szene.unity
+    guid: 627b67c568b15984da10e380969175ae
+  - enabled: 1
+    path: Assets/Scenes/ib_loose.unity
+    guid: b17ca3b73662457439c33abf446fe6b0
+  - enabled: 1
+    path: Assets/Scenes/ib_nextLevel2.unity
+    guid: afaa753399deabe4b966d999b63dd27c
+  - enabled: 0
     path: Assets/Scenes/kjg-szene.unity
     guid: 46c331b85b033b443b038c9cf9bb6e29
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/kjg-draussen.unity
     guid: dcd5eca56588f13499615aac00088074
+  - enabled: 0
+    path: Assets/Scenes/GameUI.unity
+    guid: 4b3a54d2f4fc49b4b9a917a5cbe28f0b
   m_configObjects: {}

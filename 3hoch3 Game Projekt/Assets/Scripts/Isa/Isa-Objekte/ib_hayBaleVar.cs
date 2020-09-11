@@ -112,9 +112,9 @@ public class ib_hayBaleVar : MonoBehaviour
         mesh.uv = uv.ToArray();
 
       //meshCollider = gameObject.AddComponent<MeshCollider>();               // untauglich, erkennt keine Collision
-        
+      // Viele verschiedene Einstellungen gewählt, bisher keine optimale gefunden  
         boxCollider = gameObject.AddComponent<BoxCollider>();
-        boxCollider.size = new Vector3(2 * baleWidth + 0.2f, baleHeight - 0.4f, 2 * length[index] - 0.4f);
+        boxCollider.size = new Vector3(2 * baleWidth + 0.2f, baleHeight - 0.1f, 2 * length[index] - 0.1f);
         //boxCollider.size = new Vector3(2 * baleWidth+0.2f, baleHeight -0.75f, 2 * length[index]-0.75f);
         // boxCollider.size = new Vector3(2 * baleWidth - 1f, baleHeight - 1f, 2 * length[index] - 1f);
     }
@@ -129,7 +129,7 @@ public class ib_hayBaleVar : MonoBehaviour
 
     void OnCollisionEnter(Collision otherObj)               // Alternativ: OnTriggerEnter - hat nicht funktioniert
     {
-         if (otherObj.gameObject.tag == "Player")  // MeshCollider-Schaf reagiert zu "senibel mit Heuballen (Mesh-Collider ODER Box-Collider - auch bei Größenregulierung nach unten
+         if (otherObj.gameObject.tag == "Player" || otherObj.gameObject.name == "Kopf" || otherObj.gameObject.name == "beineVorn" )  // MeshCollider-Schaf reagiert zu "senibel mit Heuballen (Mesh-Collider ODER Box-Collider - auch bei Größenregulierung nach unten
         //if (otherObj.gameObject.tag == "PlayerColl")
         //if (otherObj.gameObject.name == "Kopf" || otherObj.gameObject.name == "beineVorn" || otherObj.gameObject.name == "beineHinten" || otherObj.gameObject.name == "Koerper")
         {

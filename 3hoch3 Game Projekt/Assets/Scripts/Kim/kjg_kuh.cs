@@ -12,14 +12,15 @@ public class kjg_kuh : MonoBehaviour
     public RaycastHit shot; //für die Distanz zu Sheep
     private bool folgen = false;
     public static bool hasKuh;
-
+    Vector3 cowJump;
+    public float jumpHeight;
+    private float gravity = -9.81f;
     //Tiere sollen durcheinander hüpfen und sich zum Ausgang drehen
     bool up;
 
     private void Start()
     {
         up = false;
-
     }
     //jumping Methoden
     IEnumerator jumpUp(float seconds)
@@ -51,6 +52,7 @@ public class kjg_kuh : MonoBehaviour
     {
         //Damit Kuh dem Schaf folgt
         if (folgen) {
+        
             transform.LookAt(sheep.transform);
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out shot))
             {
@@ -81,11 +83,15 @@ public class kjg_kuh : MonoBehaviour
                 StartCoroutine(jumpDown(sec));
             }
         }
-        
 
-        
-      
+        //Springen
+        if (folgen && Input.GetKeyDown("space") && cowJump.y != 0) {
+            cowJump.y += Mathf.Sqrt(jumpHeight * -3.0f * gravity);
+            Debug.Log("hüpf"); 
+        }
 
 
-    }
+
+
+        }
 }

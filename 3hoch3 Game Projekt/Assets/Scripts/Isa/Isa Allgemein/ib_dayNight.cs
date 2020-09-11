@@ -12,7 +12,6 @@ public class ib_dayNight : MonoBehaviour
     public Light Sun;
 
     public float intensity;
-
     public int speed;
 
     // Start is called before the first frame update

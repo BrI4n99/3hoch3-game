@@ -504,7 +504,6 @@ public class kjg_maze2 : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         //Erstellung des Mesh für Labyrinth
@@ -540,13 +539,12 @@ public class kjg_maze2 : MonoBehaviour
         mazeCollider.sharedMesh = maze;
     }
     int count = 0;
+
     private void Update()
     {
         if (kjg_wallTrigger.trigger && count < 23) {
-            //Debug.Log("trigger" + kjg_wallTrigger.trigger);
             StartCoroutine(createWall());
             count++;
-            //Debug.Log("MazeSkript");
         }
     }
 }
