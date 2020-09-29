@@ -21,14 +21,15 @@ public class ib_trog : MonoBehaviour
     }
 
 
-    void OnCollisionEnter(Collision otherObj)
+    void OnCollisionEnter(Collision otherObj)           
     {
-        if (otherObj.gameObject.tag == "Player")
+        if (otherObj.gameObject.tag == "Player")                                 // Kollision mit dem Futtertrog gibt einmal Punktabzug
         {
             if (touch != true)
             {
-                minuspunkte += abzug;
-                Debug.Log("Punktabzug: 'Autsch, das war ein Heuballen!'");
+                // minuspunkte += abzug;
+                ib_StaticVar._score += abzug;
+                Debug.Log("Punktabzug: 'Autsch, das war der Futtertrog!'");
                 touch = true;
                 sheep = GetComponent<AudioSource>();
                 sheep.Play();

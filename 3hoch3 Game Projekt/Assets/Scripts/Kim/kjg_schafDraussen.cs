@@ -10,7 +10,7 @@ public class kjg_schafDraussen : MonoBehaviour
     void Start()
     {
         //Überprüfen, ob Schaf schon draußen war und ob es schon die Schlüssel hat, denn wenn die Tiere schon befreit wurden, soll kein neuer Schlüssel auftauchen
-        if (kjg_draussen_drinnen.warDraussen == true) {
+        if (kjg_sceneChanger.warDraussen == true) {
             Debug.Log("wieder drinnen");
             
             if (kjg_key.hasKey == true) {

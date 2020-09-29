@@ -43,10 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e445f9b448103e499d6a5b3ecf63f36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myGameObject: {fileID: 0}
   ground: {fileID: 6731806379086994984, guid: cfd1e3173fde5954eb18030bbff7def8, type: 3}
   fence: {fileID: 4157495249527954545, guid: 5499a6f961a5ab6488eb41c1e5836f72, type: 3}
-  fence2: {fileID: 2072283093676522586, guid: c325c93e328288443b632f808dbb3a86, type: 3}
+  fence2: {fileID: 6419241558990631449, guid: cc6ec710763e8ed4ca52797d06aaf1e5, type: 3}
   posZ: 0
   heuLangNeu:
   - {fileID: 3203935726426651785, guid: 2696d54ee9b07324fbc614a1af035c1b, type: 3}
@@ -58,12 +57,12 @@ MonoBehaviour:
   - {fileID: 286894463633737644, guid: 4917d8b16ab585a40b39036562b39110, type: 3}
   - {fileID: 7748859344203483947, guid: f5764dd42635276498a30725e22746c7, type: 3}
   hindernisNeu:
-  - {fileID: 3583825929359850595, guid: d8ceb89df9d5ca34e91c859380fda75d, type: 3}
+  - {fileID: 2458892990118120166, guid: 12c7aad8102329f41a787ed2ea7bc6e0, type: 3}
   - {fileID: 4769934573395348306, guid: 45b5992fa4fb3714fb68ac59f1c8e4e6, type: 3}
   - {fileID: 6803529937181524947, guid: 7148ec14a1e0dfb418650add6a086103, type: 3}
-  - {fileID: 2970434789334082749, guid: a9d56405e9f25d8449d67acc839b7f00, type: 3}
+  - {fileID: 3447986946812788572, guid: e9e1800e15ec1704b9613e6f2ac1502d, type: 3}
   actionNeu:
   - {fileID: 3564607978403373232, guid: 82f8709da21cbba478b02adf97fd768a, type: 3}
-  - {fileID: 3564607978403373232, guid: 82f8709da21cbba478b02adf97fd768a, type: 3}
+  - {fileID: 181376188907872593, guid: c53d4eabfbf25be4b8d1c3dd0ce51ced, type: 3}
   - {fileID: 8588119381172092580, guid: d028439481ba6184c839e560e85520f5, type: 3}
   - {fileID: 4443407812676005280, guid: 59f4752bde6b18a44847b2c3a02d255f, type: 3}

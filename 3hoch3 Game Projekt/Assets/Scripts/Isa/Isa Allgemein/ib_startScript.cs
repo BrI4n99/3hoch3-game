@@ -6,8 +6,8 @@ public class ib_startScript : MonoBehaviour
 {
     public GameObject fence; 
     public GameObject trog; 
-    public GameObject carrot; 
-
+    public GameObject carrot;
+    public GameObject puddle;
 
     private Vector3 speicher = new Vector3();
 
@@ -15,14 +15,14 @@ public class ib_startScript : MonoBehaviour
     void Start()
     {
         float rand = ib_balesMethPos.posX[Random.Range(0, 3)];
-        Vector3[] positions = new Vector3[3] { new Vector3(rand, 0, 140), new Vector3(rand, 0, 338-180), new Vector3(rand, 0, 180) };
+        Vector3[] positions = new Vector3[3] { new Vector3(rand, 0, 110), new Vector3(rand, 0, 130), new Vector3(rand, 0, 150) };
 
         ib_balesMethPos meth;
  
         meth = ib_balesMethPos.Instance;
         float i = 3.4f; // Anzahl der Hindernisse
-        meth.breit(ib_balesMethPos.posX[Random.Range(0, 3)] , ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i, true, true, gameObject);  i++;
-        meth.einfach(ib_balesMethPos.posX[Random.Range(0, 3)] , ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i, false, true, gameObject);  i++;
+        meth.breit(ib_balesMethPos.posX[Random.Range(0, 3)] , ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i-35, true, true, gameObject);  i++;
+        meth.einfach(ib_balesMethPos.posX[Random.Range(0, 3)] , ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i-35, false, true, gameObject);  i++;
         
 
 
@@ -42,7 +42,8 @@ public class ib_startScript : MonoBehaviour
         GameObject newcarrot = Instantiate(carrot, transform, false); newcarrot.name = string.Format("newcarrot");
         newcarrot.transform.Translate(positions[2]);
         GameObject newcarrot2 = Instantiate(carrot, transform, false); newcarrot2.name = string.Format("newcarrot");
-        newcarrot2.transform.Translate(new Vector3(-32, 0, 38));
+        newcarrot2.transform.Translate(new Vector3(-32, 0, 44));
+        Instantiate(puddle, transform);
 
 
     }

@@ -98,6 +98,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 60, y: 5, z: 12}
   m_Center: {x: -25, y: 0, z: 0}
+--- !u!65 &3607414678886255252
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2318206119456239352}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.043888938, y: 0.04632668, z: 0.06600002}
+  m_Center: {x: 0.00042609943, y: 0.00048187343, z: 0.03300001}
 --- !u!1001 &619136907
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -400,11 +413,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: ib_well_3 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3225378082331895767, guid: 12a53084f9944044cb224bd3cbbe129d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12a53084f9944044cb224bd3cbbe129d, type: 3}
 --- !u!4 &2318206117892944981 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3225378080605289849, guid: 12a53084f9944044cb224bd3cbbe129d,
+    type: 3}
+  m_PrefabInstance: {fileID: 930332419409201452}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2318206119456239352 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3225378082331895764, guid: 12a53084f9944044cb224bd3cbbe129d,
     type: 3}
   m_PrefabInstance: {fileID: 930332419409201452}
   m_PrefabAsset: {fileID: 0}

@@ -26,11 +26,6 @@ public class ib_generator : MonoBehaviour
     public static int randHeu = -1;
     public static int randEgg = -1;
 
-    public  List<GameObject> heuLang; // 144
-    public  List<GameObject> heuKurz; // 72
-    public  List<GameObject> hindernis; // Pyramide und rollende Fässer // 72
-    public  List<GameObject> action; // Eier, Brunnen // 72
-
 
     public GameObject myGameObject;
 
@@ -54,8 +49,6 @@ public class ib_generator : MonoBehaviour
         playerPos = GameObject.FindGameObjectWithTag("Player").transform;
         neuerAbschnitt(anfang); 
         anfang.transform.position = new Vector3(0, 0, 180);
-        //hauptteil();
-        //hauptteil();
         neuerAbschnitt(haupt);  
         neuerAbschnitt(haupt); 
     }
@@ -64,7 +57,7 @@ public class ib_generator : MonoBehaviour
     void Update()
     {
         actPlayerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
-        randHind = ib_abschnittGen.randHindernis;
+  
        // Spielerposition 
        if (counter >= maxAbsch) return;
 
@@ -77,10 +70,6 @@ public class ib_generator : MonoBehaviour
             else
             {
                 neuerAbschnitt(haupt);
-                //hauptteil();
-
-
-
             }
             Destroy(transform.GetChild(0).gameObject);
             GameObject fence = Instantiate(zaun, Vector3.forward * (aktPosZ - (360 * 3)), Quaternion.identity) ;
@@ -100,7 +89,7 @@ public class ib_generator : MonoBehaviour
         GameObject dieses = Instantiate(zuErzeugen, Vector3.forward * aktPosZ, Quaternion.identity); 
         dieses.transform.parent = transform;
       
-      if (erstes == 0) 
+        if (erstes == 0) 
         {
            aktPosZ += lenStart;
            erstes++;
@@ -108,63 +97,8 @@ public class ib_generator : MonoBehaviour
             aktPosZ += len;
             counter++;
        }
-        
-
     }
 
-    void hauptteil()
-    {
-
-        // GameObject mainpart;
-
-        Instantiate(fence2, new Vector3(0, 0, posZstart), Quaternion.identity);
-        Instantiate(fence, new Vector3(0, 0, posZstart), Quaternion.identity); // relativ zum Elternobjekt
-        Instantiate(ground, new Vector3(0, 0, posZstart), Quaternion.identity);
-
-        List<GameObject> aktElem = new List<GameObject>();
-
-        randHeuLang = Random.Range(0, heuLang.Count);
-        randHindernis = Random.Range(0, hindernis.Count);
-        randEggs = Random.Range(0, action.Count);
-        randHeuKurz = Random.Range(0, heuKurz.Count);
-
-        aktElem.Add(heuLang[randHeuLang]);
-        heuLang.Remove(heuLang[randHeuLang]);
-        aktElem.Add(action[randEggs]);
-        action.Remove(action[randEggs]);
-
-
-
-        aktElem.Add(hindernis[randHindernis]);
-        hindernis.Remove(hindernis[randHindernis]);
-
-
-        aktElem.Add(heuKurz[randHeuKurz]);
-        heuKurz.Remove(heuKurz[randHeuKurz]);
-
-
-
-
-        for (int i = 0; i < aktElem.Count; i++)
-        {
-
-            int randIndex1 = Random.Range(0, aktElem.Count);
-
-            GameObject speicher = aktElem[randIndex1];
-            aktElem[randIndex1] = aktElem[i];
-            aktElem[i] = speicher;
-        }
-
-
-        foreach (GameObject tempO in aktElem)
-        {
-            GameObject newObj = Instantiate(tempO, new Vector3(0, 0, posZ), Quaternion.identity);
-            float laengeObj = newObj.GetComponent<ib_abstandNR>().laenge;
-            newObj.transform.Translate(Vector3.forward * posZ  );
-            posZ += laengeObj ;
-        }
-
-        posZstart = posZstart + len;
-    }
+   
 
 }

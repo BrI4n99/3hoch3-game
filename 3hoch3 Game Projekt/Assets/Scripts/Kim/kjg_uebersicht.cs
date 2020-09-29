@@ -11,7 +11,7 @@ public class kjg_uebersicht : MonoBehaviour
 
     void Start()
     {
-        if (kjg_draussen_drinnen.warDraussen == true) {
+        if (kjg_sceneChanger.warDraussen == true) {
            timeline.SetActive(false);
             cameraUebersicht.SetActive(false);
         }

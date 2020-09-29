@@ -12,7 +12,7 @@ public class TL_Obstacle1_EntryTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Egg" && countTriggerEntered == 0)
+        if (other.gameObject.name == "Egg" || countTriggerEntered > 0)
         {
             return;
         }

@@ -15,9 +15,13 @@ public class kjg_controller_camera : MonoBehaviour
     private float gravityValue = -9.81f;
     public GameObject camera;
     public float camera_height = 1.0f;
+  
 
     //Anpassungen Kamera Kim Janina Guddat:
     private bool headUp;
+
+    //Isabell Bürkner
+    private bool sheepIsMoving;
 
 
     // Ende Anpassungen Kamera Kim Janina Guddat
@@ -30,8 +34,12 @@ public class kjg_controller_camera : MonoBehaviour
         controller.radius = 0.64f;
         controller.height = 0f;
         controller.minMoveDistance = 0f;
+
+        headUp = false;
     }
+
     //Kamera von Kim Guddat
+       
     IEnumerator camUp()
     {
         camera.transform.rotation = camera.transform.rotation * Quaternion.AngleAxis(3.0f * Time.deltaTime, Vector3.right);
@@ -61,7 +69,12 @@ public class kjg_controller_camera : MonoBehaviour
         if (move != Vector3.zero)
         {
             transform.forward = move;
+            sheepIsMoving = true;                      // Wackeln nur, wenn sich das Schaf bewegt - Anpassung Isabell Bürkner
             //gameObject.transform.rotation = Quaternion.LookRotation(move);
+        }
+        else
+        {
+            sheepIsMoving = false;
         }
 
         if (Input.GetButtonDown("Jump") && sheepOnGround)
@@ -75,19 +88,24 @@ public class kjg_controller_camera : MonoBehaviour
 
         //Camera
         //Anpassungen Kamera Kim Janina Guddat:
+
             camera.transform.parent = this.transform;
             camera.transform.position = new Vector3(camera.transform.position.x, camera_height + this.transform.position.y, camera.transform.position.z);
 
         // Wackeln 
         //Hovering / Floating
-        if (headUp)
-        {
-            StartCoroutine(camUp());
+        if (sheepIsMoving)                             // Wackeln nur, wenn sich das Schaf bewegt - Anpassung Isabell Bürkner
+        {                    
+            if (headUp)
+            { 
+                StartCoroutine(camUp());
+            }
+            else
+            {
+                StartCoroutine(camDown());
+            }
         }
-        else
-        {
-            StartCoroutine(camDown());
-        }
+        
 
         // Ende Anpassungen Kamera Kim Janina Guddat
 

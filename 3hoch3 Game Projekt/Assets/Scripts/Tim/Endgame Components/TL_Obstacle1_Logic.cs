@@ -6,6 +6,9 @@ public class TL_Obstacle1_Logic : MonoBehaviour
 {
     public GameObject platform;
     public GameObject waterplane;
+    public Transform platform2pos;
+    public Transform platform3pos;
+    public Transform platform4pos;
 
     bool lowerGroundState;
     bool riseWaterState;
@@ -70,12 +73,12 @@ public class TL_Obstacle1_Logic : MonoBehaviour
         platform.SetActive(true);
 
         yield return new WaitForSeconds(1);
-        Instantiate(platform, transform.position + new Vector3(0, 0, 16.5f), platform.transform.rotation).name = "Platform";
+        Instantiate(platform, platform2pos.position, transform.rotation).name = "Platform";
 
         yield return new WaitForSeconds(1.5f);
-        Instantiate(platform, transform.position + new Vector3(0, 0, 19.75f), platform.transform.rotation).name = "Platform";
+        Instantiate(platform, platform3pos.position, transform.rotation).name = "Platform";
 
         yield return new WaitForSeconds(1.2f);
-        Instantiate(platform, transform.position + new Vector3(0, 0, 23), platform.transform.rotation).name = "Platform";
+        Instantiate(platform, platform4pos.position, transform.rotation).name = "Platform";
     }
 }

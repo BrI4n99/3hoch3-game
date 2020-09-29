@@ -5,10 +5,6 @@ using UnityEngine;
 public class ib_abschnittGen : MonoBehaviour
 {
 
-    ib_generator s1;
-
-    public GameObject myGameObject;
-
     public GameObject ground;
     public GameObject fence;
     public GameObject fence2;
@@ -19,16 +15,14 @@ public class ib_abschnittGen : MonoBehaviour
     public List<GameObject> heuLangNeu; // 144
     public List<GameObject> heuKurzNeu; // 72
     public List<GameObject> hindernisNeu; // Pyramide und rollende Fässer // 72
-    public List<GameObject> actionNeu; // Eier, Brunnen // 72
+    public List<GameObject> actionNeu; // Eier 72
     
-
-
     public static int randHeuLang = -1; 
     public static int randHindernis = -1;
     public static int randEgg = -1;
     public static int randHeuKurz = -1;
 
-    int hinternisNr;
+   
 
     private int counter;
     private int randSpeicher;
@@ -48,13 +42,6 @@ public class ib_abschnittGen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       /* s1 = GetComponent<ib_generator>();
-        heuLangNeu = myGameObject.GetComponent<ib_generator>().heuLang;
-        heuKurzNeu = myGameObject.GetComponent<ib_generator>().heuKurz;
-        hindernisNeu = myGameObject.GetComponent<ib_generator>().hindernis;
-        actionNeu = myGameObject.GetComponent<ib_generator>().action;*/
-
-
         Instantiate(fence2, transform, false);
         Instantiate(fence, transform, false); // relativ zum Elternobjekt
         Instantiate(ground, transform, false);
@@ -62,33 +49,56 @@ public class ib_abschnittGen : MonoBehaviour
         List<GameObject> aktElem = new List<GameObject>();
 
         randHeuLang = Random.Range(0, heuLangNeu.Count);
+        randHeuKurz = Random.Range(0, heuKurzNeu.Count);
         randHindernis = Random.Range(0, hindernisNeu.Count);
         randEgg = Random.Range(0, actionNeu.Count);
-        randHeuKurz = Random.Range(0, heuKurzNeu.Count);
 
-        aktElem.Add(heuLangNeu[randHeuLang]);
-        heuLangNeu.Remove(heuLangNeu[randHeuLang]);
-        aktElem.Add(actionNeu[randEgg]);
-        actionNeu.Remove(actionNeu[randEgg]);
+        if (ib_StaticVar.mainPartCounter == 0)
+        {
+            ib_StaticVar.heuLang[0] = randHeuLang;
+            Debug.Log("heulang[" + ib_StaticVar.mainPartCounter + "] ist gleich " + randHeuLang);
+            ib_StaticVar.heuKurz[0] = randHeuKurz;
+            ib_StaticVar.hindernis[0] = randHindernis;
+            ib_StaticVar.eier[0] = randEgg;
 
-        Debug.Log("COUNTERStart " + counter);
-        if (counter == 1) { 
-            if (randSpeicher % 2 == 0) {
-                randHindernis = 1;
-            }
-            if (randSpeicher % 2 == 1)
-            {
-                randHindernis = 0;
-            }
+
         }
 
+        else {
+
+            for (int i = 0; i < ib_StaticVar.mainPartCounter; i++)
+            {
+                while (ib_StaticVar.heuLang[i] == randHeuLang) {
+                    randHeuLang = Random.Range(0, heuLangNeu.Count);
+                   
+                }
+                while (ib_StaticVar.heuKurz[i] == randHeuKurz)
+                {
+                    randHeuKurz = Random.Range(0, heuKurzNeu.Count);
+                }
+                while (ib_StaticVar.hindernis[i] == randHindernis)
+                {
+                    randHindernis = Random.Range(0, hindernisNeu.Count);
+                }
+                while (ib_StaticVar.eier[i] == randEgg)
+                {
+                    randEgg = Random.Range(0, actionNeu.Count);
+                }
+                ib_StaticVar.heuLang[ib_StaticVar.mainPartCounter] = randHeuLang;
+                Debug.Log("heulang[" + ib_StaticVar.mainPartCounter + "] ist gleich " + randHeuLang);
+                ib_StaticVar.heuKurz[ib_StaticVar.mainPartCounter] = randHeuKurz;
+                ib_StaticVar.hindernis[ib_StaticVar.mainPartCounter] = randHindernis;
+                ib_StaticVar.eier[ib_StaticVar.mainPartCounter] = randEgg;
+            }
+            
+
+        }
+
+
+        aktElem.Add(heuLangNeu[randHeuLang]);
+        aktElem.Add(actionNeu[randEgg]);
         aktElem.Add(hindernisNeu[randHindernis]);
-        hindernisNeu.Remove(hindernisNeu[randHindernis]);
-
-
-        aktElem.Add(heuKurzNeu[randHeuKurz]);
-        heuKurzNeu.Remove(heuKurzNeu[randHeuKurz]);
-        
+        aktElem.Add(heuKurzNeu[randHeuKurz]);     
         
 
 
@@ -109,7 +119,8 @@ public class ib_abschnittGen : MonoBehaviour
             newObj.transform.Translate(Vector3.forward * posZ);
             posZ += laengeObj;
         }
-        
+
+        ib_StaticVar.mainPartCounter++;
     }
 
     // Update is called once per frame

@@ -89,16 +89,17 @@ public class ib_controller_Anpassungen : MonoBehaviour
             controller.Move(move * Time.deltaTime * sheepSpeed);
         }
 
-      
+
 
         if (move != Vector3.zero)
         {
             transform.forward = move;  // 180 Grad
             sheepIsMoving = true;                                             // Wackeln nur, wenn sich das Schaf bewegt - Anpassung Isabell Bürkner
         }
-
-        else sheepIsMoving = false;
-
+        else
+        {
+            sheepIsMoving = false;
+        }
         if (Input.GetButtonDown("Jump") && sheepOnGround)
         {
             sheepVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
@@ -117,7 +118,7 @@ public class ib_controller_Anpassungen : MonoBehaviour
         
         
 
-        if (  sheepIsMoving)                        // Wackeln nur, wenn sich das Schaf bewegt - Anpassung Isabell Bürkner
+        if (sheepIsMoving)                        // Wackeln nur, wenn sich das Schaf bewegt - Anpassung Isabell Bürkner
         {                
             if (headUp)
             {

@@ -1,0 +1,118 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1807320500732185490
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4968421782038193061, guid: a775b548f2ef50b4fbaf064c01138c00,
+        type: 3}
+      propertyPath: staub
+      value: 
+      objectReference: {fileID: 6991819714183681192, guid: 810531cdc3ea0fd42996baf4545e8d68,
+        type: 3}
+    - target: {fileID: 5110131612814092205, guid: a775b548f2ef50b4fbaf064c01138c00,
+        type: 3}
+      propertyPath: BypassListenerEffects
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661274337195696026, guid: a775b548f2ef50b4fbaf064c01138c00,
+        type: 3}
+      propertyPath: m_Drag
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661274337195696026, guid: a775b548f2ef50b4fbaf064c01138c00,
+        type: 3}
+      propertyPath: m_Mass
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661274337195696026, guid: a775b548f2ef50b4fbaf064c01138c00,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661274337195696026, guid: a775b548f2ef50b4fbaf064c01138c00,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6303009991969380224, guid: a775b548f2ef50b4fbaf064c01138c00,
+        type: 3}
+      propertyPath: m_Name
+      value: ib_rollBarrel Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6303009991969380224, guid: a775b548f2ef50b4fbaf064c01138c00,
+        type: 3}
+      propertyPath: m_TagString
+      value: ib_barrel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6643683141101997370, guid: a775b548f2ef50b4fbaf064c01138c00,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -24
+      objectReference: {fileID: 0}
+    - target: {fileID: 6643683141101997370, guid: a775b548f2ef50b4fbaf064c01138c00,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 6643683141101997370, guid: a775b548f2ef50b4fbaf064c01138c00,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6643683141101997370, guid: a775b548f2ef50b4fbaf064c01138c00,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6643683141101997370, guid: a775b548f2ef50b4fbaf064c01138c00,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6643683141101997370, guid: a775b548f2ef50b4fbaf064c01138c00,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6643683141101997370, guid: a775b548f2ef50b4fbaf064c01138c00,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6643683141101997370, guid: a775b548f2ef50b4fbaf064c01138c00,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6643683141101997370, guid: a775b548f2ef50b4fbaf064c01138c00,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6643683141101997370, guid: a775b548f2ef50b4fbaf064c01138c00,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6643683141101997370, guid: a775b548f2ef50b4fbaf064c01138c00,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9193925475565649699, guid: a775b548f2ef50b4fbaf064c01138c00,
+        type: 3}
+      propertyPath: rolling
+      value: 
+      objectReference: {fileID: 6917020829530942527}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a775b548f2ef50b4fbaf064c01138c00, type: 3}
+--- !u!82 &6917020829530942527 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5110131612814092205, guid: a775b548f2ef50b4fbaf064c01138c00,
+    type: 3}
+  m_PrefabInstance: {fileID: 1807320500732185490}
+  m_PrefabAsset: {fileID: 0}

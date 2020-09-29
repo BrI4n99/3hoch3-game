@@ -22,7 +22,7 @@ public class ib_end : MonoBehaviour
         GameObject newFence = Instantiate(fence, transform, false); newFence.name = string.Format("newFence");
         newFence.transform.Translate(new Vector3(-46, 0, 100)); newFence.transform.Rotate(0, 90, 0);
         GameObject newCarrot = Instantiate(carrot, transform, false); newCarrot.name = string.Format("newCarrot");
-        newCarrot.transform.Translate(new Vector3(-24, 2, 75));
+        newCarrot.transform.Translate(new Vector3(-24, 3, 87));
         GameObject newCarrot2 = Instantiate(carrot, transform, false); newCarrot2.name = string.Format("newCarrot2");
         newCarrot2.transform.Translate(new Vector3(-40, 2, 125));
 

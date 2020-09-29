@@ -21,6 +21,8 @@ TagManager:
   - ib_LevelUI
   - ib_endGround
   - loose
+  - Tier
+  - lightKey
   layers:
   - Default
   - TransparentFX

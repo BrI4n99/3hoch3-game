@@ -514,6 +514,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: ib_fenceFull-left-Anfang
       objectReference: {fileID: 0}
+    - target: {fileID: 2308305174868495217, guid: c325c93e328288443b632f808dbb3a86,
+        type: 3}
+      propertyPath: elements.Array.data[7]
+      value: 
+      objectReference: {fileID: 8782650947102191888, guid: c8d8d9feabb79f14db278e28131ca3e0,
+        type: 3}
+    - target: {fileID: 2308305174868495217, guid: c325c93e328288443b632f808dbb3a86,
+        type: 3}
+      propertyPath: elements.Array.data[6]
+      value: 
+      objectReference: {fileID: 8782650947102191888, guid: c8d8d9feabb79f14db278e28131ca3e0,
+        type: 3}
+    - target: {fileID: 6411205823883855799, guid: c325c93e328288443b632f808dbb3a86,
+        type: 3}
+      propertyPath: laenge
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c325c93e328288443b632f808dbb3a86, type: 3}
 --- !u!4 &7601474612538244655 stripped

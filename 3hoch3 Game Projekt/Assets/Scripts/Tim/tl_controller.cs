@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class tl_controller : MonoBehaviour
+public class tl_controller : LivingCreature
 {
     private CharacterController controller;
     private Vector3 sheepVelocity;
@@ -33,6 +33,12 @@ public class tl_controller : MonoBehaviour
 
     //Zustand des Spielers
     bool playerAlive = true;
+
+    //Rotation des Sheeps
+    Vector3 rotationSheep;
+
+    //Last pressed Button
+    private KeyCode lastPressedKey;
 
     //Spawnpoint
     [Header("Spawnpoint")]
@@ -110,8 +116,10 @@ public class tl_controller : MonoBehaviour
         //------------------------------------------------------------------------
     }
 
-    void Start()
+    public override void Start()
     {
+        base.Start();
+
         controller = gameObject.AddComponent<CharacterController>();
         controller.center = new Vector3(0f, 0.71f, 0.12f);
         controller.radius = 0.64f;
@@ -126,6 +134,7 @@ public class tl_controller : MonoBehaviour
 
         eggSpawn = new GameObject("Egg Spawn Point");
         eggSpawn.transform.parent = gameObject.transform;
+        eggSpawn.transform.position = gameObject.transform.position;
         eggSpawn.transform.position += new Vector3(0, 0.3f, 0.7f);
 
         //Spawn des Players
@@ -137,17 +146,45 @@ public class tl_controller : MonoBehaviour
     }
 
     // Update is called once per frame
+
     void Update()
     {
         sheepOnGround = controller.isGrounded;
         if (sheepOnGround && sheepVelocity.y < 0)
         {
             sheepVelocity.y = 0f;
-        }
+        }     
 
-        move = new Vector3(0, 0, Input.GetAxis("Vertical"));
-        move = transform.TransformDirection(move);
-        controller.Move(move * Time.deltaTime * sheepSpeed);
+        if (Input.GetKey(KeyCode.W))
+        {
+            lastPressedKey = KeyCode.W;
+            move = new Vector3(0, 0, 1);
+            move = transform.TransformDirection(move);
+            controller.Move(move * Time.deltaTime * sheepSpeed);
+            rotationSheep = new Vector3(0, Input.GetAxis("Horizontal"), 0);
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            lastPressedKey = KeyCode.S;
+            move = new Vector3(0, 0, 1);
+            move = transform.TransformDirection(move);
+            controller.Move(-move * Time.deltaTime * sheepSpeed);
+            rotationSheep = new Vector3(0, -Input.GetAxis("Horizontal"), 0);
+        }
+        else
+        {
+            move = new Vector3(0, 0, 0);
+            move = transform.TransformDirection(move);
+            controller.Move(move * Time.deltaTime * sheepSpeed);
+            if (lastPressedKey == KeyCode.S)
+            {
+                rotationSheep = new Vector3(0, -Input.GetAxis("Horizontal"), 0);
+            }
+            else
+            {
+                rotationSheep = new Vector3(0, Input.GetAxis("Horizontal"), 0);
+            }
+        }  
 
         if (move != Vector3.zero)
         {
@@ -160,7 +197,7 @@ public class tl_controller : MonoBehaviour
             sheepVelocity.y += Mathf.Sqrt(jumpHeight * -3.1f * gravityValue);
         }
 
-        transform.Rotate(0, Input.GetAxis("Horizontal"), 0);
+        transform.Rotate(rotationSheep);
         sheepVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(sheepVelocity * Time.deltaTime);
 
@@ -185,6 +222,7 @@ public class tl_controller : MonoBehaviour
             transform.position = spawnpoint.transform.position;
             transform.rotation = spawnpoint.transform.rotation;
 
+            ib_StaticVar._lives--;
             playerAlive = true;
         }
     }

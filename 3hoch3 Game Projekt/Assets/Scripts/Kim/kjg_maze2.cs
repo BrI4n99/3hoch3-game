@@ -21,9 +21,10 @@ public class kjg_maze2 : MonoBehaviour
     float breite;
 
     int countMesh = 0;
+    int countWall = 0;
 
-    [SerializeField]
-    kjg_wallTrigger wallTriggerScript;
+    float a;
+    float b;
 
     private bool wand;
 
@@ -240,7 +241,7 @@ public class kjg_maze2 : MonoBehaviour
                 }
 
                 //8 TIERE
-                if ((k >= 10 && k <= 17) && j == 26)
+                if ((k >= 10 && k <= 16) && j == 26)
                 {
                     addVertices(fj, 3, fk);
                     createTrianglesAndUV();
@@ -459,41 +460,44 @@ public class kjg_maze2 : MonoBehaviour
     }
     //"Random" Wände
     IEnumerator createWall() {
-        
+        a = Random.Range(0, 5);
+        Debug.Log("a= " + a);
+        b = Random.Range(0, 5);
+        Debug.Log("b= " + b);
         for (int j = 0; j <= 50; j++) {
             for (int k = 0; k <= 50; k++) {
 
                 float fj = (float)j;
                 float fk = (float)k;
                 
-                if ((kjg_wallTrigger.a == 0 || kjg_wallTrigger.b == 0)&& (j == 22 && (k >= 6 && k <= 12))) {
+                if ((a == 0 || b == 0)&& (j == 22 && (k >= 6 && k <= 12))) {
                     addVertices(fj, 3, fk);
                     createTrianglesAndUV();
                     yield return new WaitForSeconds(0.15f);
                     Debug.Log("createWall");
                 }
-                if ((kjg_wallTrigger.a == 1 || kjg_wallTrigger.b == 1) && (j == 10 && (k >= 20 && k <= 26)))
+                if ((a == 1 || b == 1) && (j == 10 && (k >= 20 && k <= 26)))
                 {
                     addVertices(fj, 3, fk);
                     createTrianglesAndUV();
                     yield return new WaitForSeconds(0.15f);
                     Debug.Log("createWall");
                 }
-                if ((kjg_wallTrigger.a == 2 || kjg_wallTrigger.b == 2) && (j == 38 && (k >= 20 && k <= 26)))
+                if ((a == 2 || b == 2) && (j == 38 && (k >= 20 && k <= 26)))
                 {
                     addVertices(fj, 3, fk);
                     createTrianglesAndUV();
                     yield return new WaitForSeconds(0.15f);
                     Debug.Log("createWall");
                 }
-                if ((kjg_wallTrigger.a == 3 || kjg_wallTrigger.b == 3) && (k == 32 && (j >= 14 && j <= 24)))
+                if ((a == 3 || b == 3) && (k == 32 && (j >= 14 && j <= 24)))
                 {
                     addVertices(fj, 3, fk);
                     createTrianglesAndUV();
                     yield return new WaitForSeconds(0.15f);
                     Debug.Log("createWall");
                 }
-                if ((kjg_wallTrigger.a == 4 || kjg_wallTrigger.b == 4) && (j == 24 && (k >= 38 && k <= 44)))
+                if ((a == 4 || b == 4) && (j == 24 && (k >= 38 && k <= 44)))
                 {
                     addVertices(fj, 3, fk);
                     createTrianglesAndUV();
@@ -506,6 +510,11 @@ public class kjg_maze2 : MonoBehaviour
 
     void Start()
     {
+        if (kjg_sceneChanger.warDraussen)
+        {
+            countWall = 0;
+            
+        }
         //Erstellung des Mesh für Labyrinth
         maze = new Mesh();
         mazeObject = new GameObject("Labyrinth");
@@ -524,6 +533,7 @@ public class kjg_maze2 : MonoBehaviour
         mazeBody.isKinematic = true;
         mazeCollider.sharedMesh = maze;
 
+        StartCoroutine(createWall());
         StartCoroutine(createMesh());
     }
     void UpdateMesh()
@@ -538,13 +548,5 @@ public class kjg_maze2 : MonoBehaviour
 
         mazeCollider.sharedMesh = maze;
     }
-    int count = 0;
 
-    private void Update()
-    {
-        if (kjg_wallTrigger.trigger && count < 23) {
-            StartCoroutine(createWall());
-            count++;
-        }
-    }
 }

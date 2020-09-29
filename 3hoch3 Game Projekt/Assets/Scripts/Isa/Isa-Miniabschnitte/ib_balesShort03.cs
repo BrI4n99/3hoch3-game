@@ -5,7 +5,8 @@ using UnityEngine;
 public class ib_balesShort03 : MonoBehaviour
 {
     ib_balesMethPos meth;
-    
+    public GameObject puddle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +16,7 @@ public class ib_balesShort03 : MonoBehaviour
         int i = 1; // Anzahl der Hindernisse
         meth.einfach(ib_balesMethPos.posX[Random.Range(0, 3)],  ib_balesMethPos.posY[0], ib_balesMethPos.abstand*i,     true,   true, gameObject);                     i++;
         meth.breit(ib_balesMethPos.posX[Random.Range(0, 3)],   ib_balesMethPos.posY[0], ib_balesMethPos.abstand*i,     false,  ib_balesMethPos.randBool, gameObject);  i++;
-       
+        Instantiate(puddle, transform).transform.Translate(0, -0.5f, 0);
 
     }
 
