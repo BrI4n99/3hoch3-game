@@ -25,6 +25,7 @@ public class ib_startScript : MonoBehaviour
         meth.einfach(ib_balesMethPos.posX[Random.Range(0, 3)] , ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i-35, false, true, gameObject);  i++;
         
 
+        // Zufällige Reihenfolge
 
        for (int j = 0; j < positions.Length; j++) {
             
@@ -35,6 +36,7 @@ public class ib_startScript : MonoBehaviour
             positions[j] = speicher; 
         }
 
+       // Objekte instanziieren
         GameObject newFence = Instantiate(fence, transform, false); newFence.name = string.Format("newFence");
         newFence.transform.Translate(new Vector3(-46, 0, positions[0].z)); newFence.transform.Rotate(0, 90, 0);
         GameObject newTrog = Instantiate(trog, transform, false); newTrog.name = string.Format("newTrog"); 

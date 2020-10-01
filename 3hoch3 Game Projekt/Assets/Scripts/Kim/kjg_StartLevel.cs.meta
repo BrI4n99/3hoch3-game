@@ -3,7 +3,17 @@ guid: aeb5b95b096e9934ab6b84a6f8a29e4d
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - wand: {instanceID: 0}
+  - tomatenKiste: {instanceID: 0}
+  - dach1: {instanceID: 0}
+  - dach2: {instanceID: 0}
+  - seite: {instanceID: 0}
+  - eier: {instanceID: 0}
+  - moehren: {instanceID: 0}
+  - keyAnzeige: {instanceID: 0}
+  - trog: {instanceID: 0}
+  - kiste: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

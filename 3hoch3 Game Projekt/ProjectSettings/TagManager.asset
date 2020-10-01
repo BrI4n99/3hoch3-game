@@ -23,6 +23,8 @@ TagManager:
   - loose
   - Tier
   - lightKey
+  - fassRollen
+  - ib_poison
   layers:
   - Default
   - TransparentFX

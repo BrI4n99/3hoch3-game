@@ -16,6 +16,7 @@ public class TL_Platform : MonoBehaviour
     private float zValue2;
 
     private Transform part;
+    private float partRotation;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -58,13 +59,14 @@ public class TL_Platform : MonoBehaviour
         zValue1 = startPositionPlatform.position.z + 2;
         zValue2 = startPositionPlatform.position.z - 2;
 
-        part = GameObject.Find("TL_Obstalce1(Clone)").transform;
+        part = GameObject.Find("Obstacle1").transform;
+        partRotation = part.transform.localEulerAngles.y;
     }
 
     // Update is called once per frame
     private void FixedUpdate()
     {
-        if (part.transform.rotation.y == 0 || part.transform.rotation.y == 180 || part.transform.rotation.y == -180 || part.transform.rotation.y == 360 || part.transform.rotation.y == -360)
+        if (partRotation == 0 || partRotation == 180 || partRotation == -180 || partRotation == 360 || partRotation == -360)
         {
             if (transform.position.x > xValue1)
             {

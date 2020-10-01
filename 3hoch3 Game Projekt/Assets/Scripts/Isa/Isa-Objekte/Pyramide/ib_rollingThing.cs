@@ -28,9 +28,6 @@ public class ib_rollingThing : MonoBehaviour
     public Canvas canvas;
     private static Image star;
    
-   
-  
-
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +37,7 @@ public class ib_rollingThing : MonoBehaviour
         second = true;
         canvas = GameObject.FindGameObjectWithTag("ib_LevelUI").GetComponent<Canvas>();
         star = canvas.transform.GetChild(0).GetComponent<Image>();
+
     }
 
     // Update is called once per frame
@@ -86,11 +84,6 @@ public class ib_rollingThing : MonoBehaviour
 
 
                 }
-
-                
-                   
-                
-
                 
                 Debug.Log("Partikel");                                                      // Partikelsystem 
                 partikel = Instantiate(staub, transform.position, Quaternion.identity);     
@@ -106,6 +99,7 @@ public class ib_rollingThing : MonoBehaviour
         if (otherObj.gameObject.tag == "Player" || otherObj.gameObject.name == "Kopf")
         {
             Debug.Log("'It's a rolling thing.'");
+            GetComponent<Rigidbody>().AddForce(transform.forward * 20);
             rolling.Play();
         }
     }
@@ -116,16 +110,14 @@ public class ib_rollingThing : MonoBehaviour
         Destroy(partikel);
         Debug.Log("WaitingFor2secs");
         yield return new WaitForSeconds(2f);
-        Destroy(eines.gameObject, 2.5f);
+        Destroy(eines.gameObject, 1.5f);
 
     }
 
     IEnumerator zoom()
     {
-
         StartCoroutine(starScript.zoom());
         yield return new WaitForSeconds(0.1f);
-        Debug.Log("testojkfg2");
         StopCoroutine(starScript.zoom());
     }
 

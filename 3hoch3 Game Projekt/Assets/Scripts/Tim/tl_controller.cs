@@ -44,6 +44,11 @@ public class tl_controller : LivingCreature
     [Header("Spawnpoint")]
     public GameObject spawnpoint;
 
+    //Player Enemy Interaktion
+    private bool hitEnemy = false;
+    private float durationPush;
+    private Vector3 pushDirection;
+
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         //------------------ Death des Players -----------------------------------
@@ -112,14 +117,31 @@ public class tl_controller : LivingCreature
             }
 
             body.AddForceAtPosition(force, hit.point);
-        }        
+        }
+        //------------------------------------------------------------------------
+
+        //------------------ Vogelscheuche greift den Spieler an --------------------------
+        if (hit.gameObject.name == "Vogelscheuche" && !hitEnemy)
+        {
+            print("Hiiit");
+            hitEnemy = true;
+            StartCoroutine("takePushFromEnemy", hit.gameObject);
+
+            //Leben abziehen
+            ib_StaticVar._lives--;
+
+            //CoolDown starten
+            StartCoroutine("coolDownEnemyHit");
+        }
         //------------------------------------------------------------------------
     }
 
     public override void Start()
     {
+        //Start Funktion der Basis Klasse ausführen
         base.Start();
 
+        //Controller hinzufügen und anpassen
         controller = gameObject.AddComponent<CharacterController>();
         controller.center = new Vector3(0f, 0.71f, 0.12f);
         controller.radius = 0.64f;
@@ -132,6 +154,7 @@ public class tl_controller : LivingCreature
         //Instanz der Klasse tl_ObjectPooler erzeugen, um auf deren Funktion zugreifen zu können
         objectPooler = tl_ObjectPooler.Instance;
 
+        //Spawnpoint der Eier
         eggSpawn = new GameObject("Egg Spawn Point");
         eggSpawn.transform.parent = gameObject.transform;
         eggSpawn.transform.position = gameObject.transform.position;
@@ -153,8 +176,13 @@ public class tl_controller : LivingCreature
         if (sheepOnGround && sheepVelocity.y < 0)
         {
             sheepVelocity.y = 0f;
-        }     
+        }
 
+        if (!Input.anyKey)
+        {
+            lastPressedKey = KeyCode.W;
+        }
+        //Vorwärtslaufen
         if (Input.GetKey(KeyCode.W))
         {
             lastPressedKey = KeyCode.W;
@@ -163,6 +191,7 @@ public class tl_controller : LivingCreature
             controller.Move(move * Time.deltaTime * sheepSpeed);
             rotationSheep = new Vector3(0, Input.GetAxis("Horizontal"), 0);
         }
+        //Rückwärtslaufen
         else if (Input.GetKey(KeyCode.S))
         {
             lastPressedKey = KeyCode.S;
@@ -184,7 +213,7 @@ public class tl_controller : LivingCreature
             {
                 rotationSheep = new Vector3(0, Input.GetAxis("Horizontal"), 0);
             }
-        }  
+        }
 
         if (move != Vector3.zero)
         {
@@ -214,6 +243,8 @@ public class tl_controller : LivingCreature
             GameObject egg = objectPooler.SpawnFromPool("Egg", eggSpawn.transform.position, eggSpawn.transform.rotation);
             Vector3 direction = Quaternion.AngleAxis(forceAngle, eggSpawn.transform.right) * eggSpawn.transform.forward;
             egg.GetComponent<Rigidbody>().AddForce(direction * eggForce);
+
+            ib_StaticVar._eggs--;
         }
 
         //Respawn des Spielers, je nach Checkpoint
@@ -222,8 +253,30 @@ public class tl_controller : LivingCreature
             transform.position = spawnpoint.transform.position;
             transform.rotation = spawnpoint.transform.rotation;
 
-            ib_StaticVar._lives--;
+            ib_StaticVar._lives --;
             playerAlive = true;
+        }
+    }
+
+    //CoolDown nachdem das Schaaf von der Vogelscheuche getroffen wurde
+    IEnumerator coolDownEnemyHit()
+    {
+        yield return new WaitForSeconds(2f);
+        hitEnemy = false;
+    }
+
+    IEnumerator takePushFromEnemy(GameObject enemy)
+    {
+        durationPush = 2f;
+        pushDirection = enemy.transform.forward;
+        //Schaf nach oben pushen
+        sheepVelocity.y += Mathf.Sqrt(1.3f * -3.1f * gravityValue);
+        while (durationPush >= 0)
+        {
+            //Schaf in die Richtung des Pushes bewegen
+            controller.Move(pushDirection * Time.deltaTime * (sheepSpeed + 1.8f));
+            durationPush -= Time.smoothDeltaTime;
+            yield return null;
         }
     }
 }

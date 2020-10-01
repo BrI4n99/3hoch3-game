@@ -6,7 +6,7 @@ public class ib_pyramide : MonoBehaviour
 {
     public GameObject block;
 
-        // Kugel
+       
     public GameObject rollingThing;
     public Material heu2;
     public float posPyr = 190f;

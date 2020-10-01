@@ -13,19 +13,16 @@ public class ib_eggsInBasket : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-       //  Vector3 disBasket = new Vector3(16, -3, 0);
-        // GameObject rollingEgg = Instantiate(eggs, eggPos, gameObject.transform.rotation);  
+
+        // Objekte instanziieren: Ei, Korb, Heuballen mit Möhren        
         GameObject rollingEgg = Instantiate(eggs, transform, false);  
         rollingEgg.transform.Translate(eggPos);
         rollingEgg.name = string.Format("rollingEgg");
-       // GameObject thisBasket = Instantiate(basket, basketPos, gameObject.transform.rotation);  
+     
         GameObject thisBasket = Instantiate(basket, transform, false); 
         thisBasket.transform.Translate(basketPos);
         thisBasket.name = string.Format("thisBasket");
-        //thisBasket.transform.Rotate(new Vector3(90, 0, 0));
-
-
+        
         meth = ib_balesMethPos.Instance;
         float i = 1.5f; // Anzahl der Hindernisse
         int lr1 = 2;

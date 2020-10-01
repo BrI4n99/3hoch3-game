@@ -42,17 +42,22 @@ public class ib_abschnittGen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Grundelemente: Zaun links und rechts, sowie Boden
         Instantiate(fence2, transform, false);
         Instantiate(fence, transform, false); // relativ zum Elternobjekt
         Instantiate(ground, transform, false);
 
+        // Liste für aktuelle Elemente, die in diesem Abschnitt auftauchen sollen
         List<GameObject> aktElem = new List<GameObject>();
 
+        // Zufallszahlen zwischen Null und Länge der jeweiligen Liste (aus der Element genommen wird)
         randHeuLang = Random.Range(0, heuLangNeu.Count);
         randHeuKurz = Random.Range(0, heuKurzNeu.Count);
         randHindernis = Random.Range(0, hindernisNeu.Count);
         randEgg = Random.Range(0, actionNeu.Count);
 
+        
+        // Erster Abschnitt - Index egal
         if (ib_StaticVar.mainPartCounter == 0)
         {
             ib_StaticVar.heuLang[0] = randHeuLang;
@@ -64,6 +69,7 @@ public class ib_abschnittGen : MonoBehaviour
 
         }
 
+        // Weitere Abschnitte - keine Wiederholungen - prüfen, ob Index bereits verwendet wurde, falls ja, neue Zufallszahl
         else {
 
             for (int i = 0; i < ib_StaticVar.mainPartCounter; i++)
@@ -91,17 +97,17 @@ public class ib_abschnittGen : MonoBehaviour
                 ib_StaticVar.eier[ib_StaticVar.mainPartCounter] = randEgg;
             }
             
-
+            // Zufallszahlen müssen gespeichert werden 
         }
 
-
+        // Hinzufügen der Elemente in die Liste 
         aktElem.Add(heuLangNeu[randHeuLang]);
         aktElem.Add(actionNeu[randEgg]);
         aktElem.Add(hindernisNeu[randHindernis]);
         aktElem.Add(heuKurzNeu[randHeuKurz]);     
         
 
-
+        // Zufälligkeit in der Anordnungsreihenfolge - Liste durchmischen
         for (int i = 0; i < aktElem.Count; i++) {
             
             int randIndex1 = Random.Range(0,aktElem.Count);
@@ -111,7 +117,7 @@ public class ib_abschnittGen : MonoBehaviour
             aktElem[i] = speicher; 
         }
 
-
+        // Instanziieren der Elemente in der Liste
         foreach (GameObject tempO in aktElem)
         {
             GameObject newObj = Instantiate(tempO, transform, false);
@@ -120,6 +126,7 @@ public class ib_abschnittGen : MonoBehaviour
             posZ += laengeObj;
         }
 
+        // Zähler der Haupt-Abschnitte hochzählen
         ib_StaticVar.mainPartCounter++;
     }
 

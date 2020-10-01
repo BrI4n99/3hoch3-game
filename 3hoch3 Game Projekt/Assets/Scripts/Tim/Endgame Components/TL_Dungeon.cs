@@ -100,6 +100,7 @@ public class TL_Dungeon : MonoBehaviour
             else if (partsList[randomNumber] == "Obstacle1")
             {
                 builtParts[k] = Instantiate(dungeonParts[3], anker.position, anker.rotation);
+                builtParts[k].name = "Obstacle1";
             }
             else if (partsList[randomNumber] == "Obstacle2")
             {

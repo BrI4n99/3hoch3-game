@@ -28,7 +28,7 @@ public class kjg_tuerBauer : MonoBehaviour
     {
         if (other.gameObject.name == "SheepWhite" && kjg_sceneChanger.warDraussen == true)
         {
-            SceneManager.LoadScene("tl-szene");
+            SceneManager.LoadScene("ib_nextLevel3");
         }
         else if (other.gameObject.name == "SheepWhite" && activate)
         {

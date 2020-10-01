@@ -22,6 +22,7 @@ public class ib_button : MonoBehaviour
 
     int counter = 0;
     public static int bonuspunkte = 0;
+    private bool playSound; 
 
     IB_Star starScript;
 
@@ -40,11 +41,17 @@ public class ib_button : MonoBehaviour
     {
         animator.SetBool("onButton", buttonStatus);
 
+
+        if (counter == 1 && !playSound) {
+            playSound = true;
+            chain.Play();
+        }
+
         if (first == true && second == true)
         {
             Debug.Log("Play und Move");
             StartCoroutine(Move());
-            chain.Play();
+         
             second = false;
             first = false;
             // bonuspunkte = 150;
@@ -79,6 +86,7 @@ public class ib_button : MonoBehaviour
             if (counter == 3 && second == true)
             {
                 first = true;
+                chain.Play();
             }
 
             Debug.Log(counter);

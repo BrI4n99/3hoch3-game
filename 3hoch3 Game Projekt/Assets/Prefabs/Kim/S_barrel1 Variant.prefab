@@ -1,5 +1,34 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!54 &-3682177641915288766
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957162969208985131}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &-5535994372710779850
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957162969208985131}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.95588875, y: 1.3210793, z: 0.88770294}
+  m_Center: {x: 1.4022479, y: 0.65310144, z: 0.6622124}
 --- !u!1001 &1957162969209081993
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9,7 +38,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100002, guid: 91f4557abebbb4146ad7cfe1556dcdb5, type: 3}
       propertyPath: m_Name
-      value: S_barrel1
+      value: S_barrel1 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 91f4557abebbb4146ad7cfe1556dcdb5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -67,5 +96,15 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3ff2f84c01fea3242972757079e95274, type: 2}
+    - target: {fileID: 2300002, guid: 91f4557abebbb4146ad7cfe1556dcdb5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ddc8142dd47a7da4286b375b2cddeafd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91f4557abebbb4146ad7cfe1556dcdb5, type: 3}
+--- !u!1 &1957162969208985131 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: 91f4557abebbb4146ad7cfe1556dcdb5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1957162969209081993}
+  m_PrefabAsset: {fileID: 0}

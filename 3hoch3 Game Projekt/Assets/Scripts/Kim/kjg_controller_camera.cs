@@ -15,14 +15,27 @@ public class kjg_controller_camera : MonoBehaviour
     private float gravityValue = -9.81f;
     public GameObject camera;
     public float camera_height = 1.0f;
-  
+
+    //Object Pooler
+    tl_ObjectPooler objectPooler;
+
+    //Werte für das Werfen der Eier
+    [Header("Throwing Settings")]
+    public int eggForce;
+    public float forceAngle;
+    GameObject eggSpawn;
+
+    //Rotation des Sheeps
+    Vector3 rotationSheep;
+
+    //Last pressed Button
+    private KeyCode lastPressedKey;
 
     //Anpassungen Kamera Kim Janina Guddat:
     private bool headUp;
 
     //Isabell Bürkner
     private bool sheepIsMoving;
-
 
     // Ende Anpassungen Kamera Kim Janina Guddat
 
@@ -36,6 +49,14 @@ public class kjg_controller_camera : MonoBehaviour
         controller.minMoveDistance = 0f;
 
         headUp = false;
+
+        //Instanz der Klasse tl_ObjectPooler erzeugen, um auf deren Funktion zugreifen zu können
+        objectPooler = tl_ObjectPooler.Instance;
+
+        eggSpawn = new GameObject("Egg Spawn Point");
+        eggSpawn.transform.parent = gameObject.transform;
+        eggSpawn.transform.position = gameObject.transform.position;
+        eggSpawn.transform.position += new Vector3(0, 0.3f, 1f);
     }
 
     //Kamera von Kim Guddat
@@ -62,34 +83,60 @@ public class kjg_controller_camera : MonoBehaviour
             sheepVelocity.y = 0f;
         }
 
-        move = new Vector3(0, 0, Input.GetAxis("Vertical"));
-        move = transform.TransformDirection(move);
-        controller.Move(move * Time.deltaTime * sheepSpeed);
-
-        if (move != Vector3.zero)
+        if (Input.GetKey(KeyCode.W))
         {
-            transform.forward = move;
-            sheepIsMoving = true;                      // Wackeln nur, wenn sich das Schaf bewegt - Anpassung Isabell Bürkner
-            //gameObject.transform.rotation = Quaternion.LookRotation(move);
+            lastPressedKey = KeyCode.W;
+            move = new Vector3(0, 0, 1);
+            move = transform.TransformDirection(move);
+            controller.Move(move * Time.deltaTime * sheepSpeed);
+            rotationSheep = new Vector3(0, Input.GetAxis("Horizontal"), 0);
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            lastPressedKey = KeyCode.S;
+            move = new Vector3(0, 0, 1);
+            move = transform.TransformDirection(move);
+            controller.Move(-move * Time.deltaTime * sheepSpeed);
+            rotationSheep = new Vector3(0, -Input.GetAxis("Horizontal"), 0);
         }
         else
         {
+            move = new Vector3(0, 0, 0);
+            move = transform.TransformDirection(move);
+            controller.Move(move * Time.deltaTime * sheepSpeed);
+            if (lastPressedKey == KeyCode.S)
+            {
+                rotationSheep = new Vector3(0, -Input.GetAxis("Horizontal"), 0);
+            }
+            else
+            {
+                rotationSheep = new Vector3(0, Input.GetAxis("Horizontal"), 0);
+            }
+        }
+
+        if (move != Vector3.zero)
+        {
+            sheepIsMoving = true;
+            transform.forward = move;
+            //gameObject.transform.rotation = Quaternion.LookRotation(move);
+        }
+        else {
             sheepIsMoving = false;
         }
 
         if (Input.GetButtonDown("Jump") && sheepOnGround)
         {
-            sheepVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+            sheepVelocity.y += Mathf.Sqrt(jumpHeight * -3.1f * gravityValue);
         }
 
-        transform.Rotate(0, Input.GetAxis("Horizontal"), 0);
+        transform.Rotate(rotationSheep);
         sheepVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(sheepVelocity * Time.deltaTime);
 
         //Camera
         //Anpassungen Kamera Kim Janina Guddat:
 
-            camera.transform.parent = this.transform;
+        camera.transform.parent = this.transform;
             camera.transform.position = new Vector3(camera.transform.position.x, camera_height + this.transform.position.y, camera.transform.position.z);
 
         // Wackeln 
@@ -104,10 +151,22 @@ public class kjg_controller_camera : MonoBehaviour
             {
                 StartCoroutine(camDown());
             }
-        }
-        
+        } 
 
         // Ende Anpassungen Kamera Kim Janina Guddat
 
+        //Eier werfen
+        if (Input.GetButtonDown("Fire1"))
+        {
+            GameObject egg = objectPooler.SpawnFromPool("Egg", eggSpawn.transform.position, eggSpawn.transform.rotation);
+            Vector3 direction = Quaternion.AngleAxis(forceAngle, eggSpawn.transform.right) * eggSpawn.transform.forward;
+            egg.GetComponent<Rigidbody>().AddForce(direction * eggForce);
+        }
+
+        //Sound Kim Janina Guddat
+        if (kjg_tomatoTrigger.hitSheep) {
+            //Audio
+            GetComponent<AudioSource>().Play();
+        }
     }
 }

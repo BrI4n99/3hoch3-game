@@ -8,6 +8,7 @@ public class ib_barr2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Hinderniszäune 
         GameObject newFence1 = Instantiate(fence, transform, false); newFence1.name = string.Format("newFence1");
         newFence1.transform.Translate(new Vector3(-46, 0, 30)); newFence1.transform.Rotate(0, 90, 0);
         GameObject newFence2 = Instantiate(fence, transform, false); newFence2.name = string.Format("newFence2");

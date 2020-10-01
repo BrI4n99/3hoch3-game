@@ -19,9 +19,6 @@ public class ib_carrot : MonoBehaviour
     public Vector3 carrotPos;
     public Vector3 carrotPos2;
     public Quaternion carrotRot;
-    float hoehe;
-    float zRot;
-    Vector3  cInWordSpace;
 
 
     // Start is called before the first frame update
@@ -30,7 +27,6 @@ public class ib_carrot : MonoBehaviour
 
        sheep = GameObject.FindWithTag("PlayerColl");
        moehre = this.gameObject;
-       hoehe = moehre.transform.position.y;
        eatingCarrots = this.GetComponent<AudioSource>();
 
     }
@@ -61,7 +57,6 @@ public class ib_carrot : MonoBehaviour
             {
                 eatingCarrots.Play();
                 // Punkte zählen
-                // carrots++;
                 ib_StaticVar._carrots++;
                 Debug.Log("Yummy, Möööööhrchen!");
                 carrotEat = true;

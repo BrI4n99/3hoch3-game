@@ -21,7 +21,7 @@ public class kjg_hinweisStart : MonoBehaviour
         signStart.SetActive(false);
         signActivate = false;
     }
-
+ 
     void Update()
     {
        zeit += Time.deltaTime;

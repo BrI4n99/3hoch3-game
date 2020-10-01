@@ -173,6 +173,7 @@ GameObject:
   - component: {fileID: 8961023013330578396}
   - component: {fileID: 5799684166251694485}
   - component: {fileID: 8990532611093279687}
+  - component: {fileID: 1185682792050650940}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -214,10 +215,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6288754073417509359}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f4264e3b223ea140a4e8744faa24025, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
   sign: {fileID: 0}
+--- !u!114 &1185682792050650940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6288754073417509359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36cbfc8275719694b837d323045a2f09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  childNumber: 5
+  posZ: 1440
+  player: {fileID: 0}

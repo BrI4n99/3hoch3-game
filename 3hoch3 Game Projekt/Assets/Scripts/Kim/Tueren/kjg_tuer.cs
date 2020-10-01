@@ -16,6 +16,7 @@ public class kjg_tuer : MonoBehaviour
     //Tür zu den Tieren öffnen
     private void Start()
     {
+        gameObject.SetActive(false);
         signGefaengnis.SetActive(false);
         activate = true;
     }

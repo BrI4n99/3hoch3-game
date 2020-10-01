@@ -45,7 +45,6 @@ public class ib_egg : MonoBehaviour
             if (eggsCheck != true)
             {
                 // Eier hochzählen
-                //eggCount += 12 - abzug;
                 ib_StaticVar._eggs += (12 - abzug);
                 Debug.Log("Du hast " + (12 - abzug) + " Eier gesammelt");
                 eggsCheck = true;
@@ -70,7 +69,7 @@ public class ib_egg : MonoBehaviour
                     rollingEgg.Play();
                 }
                 hitEgg = true;
-                Invoke("abziehen", 15F);                  
+                Invoke("abziehen", 15F);                  // nach 15 Sekunden 6 Eier abziehen
             }
 
 

@@ -114,7 +114,7 @@ public class ib_hayBaleVar : MonoBehaviour
       //meshCollider = gameObject.AddComponent<MeshCollider>();               // untauglich, erkennt keine Collision
       // Viele verschiedene Einstellungen gewählt, bisher keine optimale gefunden  
         boxCollider = gameObject.AddComponent<BoxCollider>();
-        boxCollider.size = new Vector3(2 * baleWidth + 0.2f, baleHeight - 0.3f, 2 * length[index] - 0.3f);
+        boxCollider.size = new Vector3(2 * baleWidth + 0.2f, baleHeight - 0.2f, 2 * length[index] - 0.2f);
         //boxCollider.size = new Vector3(2 * baleWidth+0.2f, baleHeight -0.75f, 2 * length[index]-0.75f);
         // boxCollider.size = new Vector3(2 * baleWidth - 1f, baleHeight - 1f, 2 * length[index] - 1f);
     }

@@ -26,10 +26,8 @@ public class kjg_maze2 : MonoBehaviour
     float a;
     float b;
 
-    private bool wand;
-
     void addVertices(float x, float y, float z) {
-        laenge = 1; //Random.Range(0.0f, 3.0f);
+        laenge = 1; 
         breite = 1;
 
         //-----------------------------------------VERTICES---------------------------------------------------
@@ -461,9 +459,9 @@ public class kjg_maze2 : MonoBehaviour
     //"Random" Wände
     IEnumerator createWall() {
         a = Random.Range(0, 5);
-        Debug.Log("a= " + a);
+        //Debug.Log("a= " + a);
         b = Random.Range(0, 5);
-        Debug.Log("b= " + b);
+        //Debug.Log("b= " + b);
         for (int j = 0; j <= 50; j++) {
             for (int k = 0; k <= 50; k++) {
 
@@ -474,35 +472,30 @@ public class kjg_maze2 : MonoBehaviour
                     addVertices(fj, 3, fk);
                     createTrianglesAndUV();
                     yield return new WaitForSeconds(0.15f);
-                    Debug.Log("createWall");
                 }
                 if ((a == 1 || b == 1) && (j == 10 && (k >= 20 && k <= 26)))
                 {
                     addVertices(fj, 3, fk);
                     createTrianglesAndUV();
                     yield return new WaitForSeconds(0.15f);
-                    Debug.Log("createWall");
                 }
                 if ((a == 2 || b == 2) && (j == 38 && (k >= 20 && k <= 26)))
                 {
                     addVertices(fj, 3, fk);
                     createTrianglesAndUV();
                     yield return new WaitForSeconds(0.15f);
-                    Debug.Log("createWall");
                 }
                 if ((a == 3 || b == 3) && (k == 32 && (j >= 14 && j <= 24)))
                 {
                     addVertices(fj, 3, fk);
                     createTrianglesAndUV();
                     yield return new WaitForSeconds(0.15f);
-                    Debug.Log("createWall");
                 }
                 if ((a == 4 || b == 4) && (j == 24 && (k >= 38 && k <= 44)))
                 {
                     addVertices(fj, 3, fk);
                     createTrianglesAndUV();
                     yield return new WaitForSeconds(0.15f);
-                    Debug.Log("createWall");
                 }
             }
         }

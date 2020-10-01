@@ -25,7 +25,7 @@ public class IB_Star : MonoBehaviour
     void Start()
     {
         starZoom = star.GetComponent<Animator>();
-
+        float len = starZoom.runtimeAnimatorController.animationClips[0].length;
 
     }
 
@@ -36,19 +36,15 @@ public class IB_Star : MonoBehaviour
     }
 
     public  IEnumerator zoom() {
+        
         starZoom.enabled = true;
-        print("ZOOM-Start");
+     
         starZoom = star.GetComponent<Animator>();
         float len = starZoom.runtimeAnimatorController.animationClips[0].length;
         starZoom.SetBool("startZoom", false);
-        Debug.Log("ZOOMing");
         StartCoroutine(stop());
         yield return new WaitForSeconds(0.1f);
-        Debug.Log("ZOOMing2");
-  
-
-        
-        Debug.Log ("ZOOM-ENDE");
+    
     }
 
 
@@ -63,16 +59,12 @@ public class IB_Star : MonoBehaviour
     public IEnumerator zoom2()
     {
         starZoom.enabled = true;
-        print("ZOOM-Start");
         starZoom = star.GetComponent<Animator>();
-        // float len = starZoom.runtimeAnimatorController.animationClips[0].length;
         starZoom.SetBool("startZoom", true);
-        Debug.Log("ZOOMing");
         StartCoroutine(stop());
         yield return new WaitForSeconds(2);
-        Debug.Log("ZOOMing2");
         starZoom.enabled = false;
-        Debug.Log("ZOOM-ENDE");
+      
     }
 
 

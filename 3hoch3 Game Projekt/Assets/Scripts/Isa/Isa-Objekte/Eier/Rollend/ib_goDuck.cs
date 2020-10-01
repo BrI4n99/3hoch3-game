@@ -13,6 +13,7 @@ public class ib_goDuck : MonoBehaviour
     bool floatUp = true;
     private Vector3 duckPos;
     private Vector3 newDuckPos;
+    // Marschroute für das Huhn
     public Vector3[] goDuckPos = new Vector3[] { new Vector3(-1, 2, 5), new Vector3(-4, -1, 3), new Vector3(3, 1, 5), 
                                                  new Vector3(5, -1, 5), new Vector3(-4, 1, 5), new Vector3(-4, -1, 5), 
                                                  new Vector3(5, 1, 5), new Vector3(4, -1, 3), new Vector3(3, 0, 5), 

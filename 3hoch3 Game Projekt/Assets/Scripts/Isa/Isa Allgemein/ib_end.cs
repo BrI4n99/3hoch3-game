@@ -15,6 +15,7 @@ public class ib_end : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Instanziieren der Elemente im letzten Abschnitt
         GameObject newTrog = Instantiate(trog, transform, false); newTrog.name = string.Format("newTrog"); 
         newTrog.transform.Translate(new Vector3(-24, 0, 75)); newTrog.transform.Rotate(270, 0, 0);
         GameObject newPyra = Instantiate(pyra, transform, false); newPyra.name = string.Format("newPyra"); 
