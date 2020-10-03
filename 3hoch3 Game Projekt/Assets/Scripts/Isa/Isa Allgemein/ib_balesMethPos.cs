@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class ib_balesMethPos : MonoBehaviour
@@ -10,15 +11,16 @@ public class ib_balesMethPos : MonoBehaviour
     public GameObject carrot;
     public GameObject failCarrot;
     public GameObject fence;
+    public GameObject mushroom;
 
-     
+    private static float carHoehe;
 
     // Möhren
-    public static Vector3[] carPos = new Vector3[] {    new Vector3(-40f, 1f, 0f),
-                                                        new Vector3(-24f, 1f, 0f),
-                                                        new Vector3(-8f, 1f, 0f),
-                                                        new Vector3(-40f, 1f, -9f),
-                                                        new Vector3(-24f, 1f, -9f),
+    public static Vector3[] carPos = new Vector3[] {    new Vector3(-40f, 1f , 0f),
+                                                        new Vector3(-24f, 1f , 0f),
+                                                        new Vector3(-8f, 1f , 0f),
+                                                        new Vector3(-40f, 1f , -9f),
+                                                        new Vector3(-24f, 1f , -9f),
                                                         new Vector3(-8f, 1f, -9f) };
 
 
@@ -57,7 +59,7 @@ public class ib_balesMethPos : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        carHoehe = Random.Range(0.1f, 2f);
         // Random Bool
         int rand = Random.Range(0, 2);
 
@@ -67,6 +69,8 @@ public class ib_balesMethPos : MonoBehaviour
         }
         else randBool = false;
 
+
+
     }
 
 
@@ -75,6 +79,21 @@ public class ib_balesMethPos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    }
+
+    public GameObject fake() {
+
+        int rand = Random.Range(0, 3);
+        GameObject fakeObj;
+
+        if (rand == 0) fakeObj = failCarrot;
+        else
+        {
+            fakeObj = mushroom; 
+        }
+
+        return fakeObj;
+
     }
 
     // Methoden für Heuballen-Konstruktionen
@@ -152,7 +171,7 @@ public class ib_balesMethPos : MonoBehaviour
         void instanzCar(GameObject child, GameObject neu, string name, int index)
         {
             float pX = carPos[index].x; float pY = carPos[index].y; float pZ = carPos[index].z;
-            Vector3 realPos = new Vector3(pX, pY + hoehe, pZ + z);
+            Vector3 realPos = new Vector3(pX, pY + hoehe + carHoehe, pZ + z);
             GameObject neuesObjekt = Instantiate(child, parentObj.transform, false);
             neuesObjekt.transform.Translate(realPos);
             neuesObjekt.name = string.Format(name);
@@ -173,7 +192,7 @@ public class ib_balesMethPos : MonoBehaviour
                 GameObject collCarrot = new GameObject();
                 if (x == -8)
                 {
-                    if (index1 == 2 || index1 == 5) hoehe = 3f;
+                    if (index1 == 2 || index1 == 5) hoehe = 3f ;
                     instanzCar(carrot, collCarrot, "collCarrot", index1);
                 }
                 if (x == -24)
@@ -183,7 +202,7 @@ public class ib_balesMethPos : MonoBehaviour
                 }
                 if (x == -40)
                 {
-                    if (index1 == 0 || index1 == 3) hoehe = 3f;
+                    if (index1 == 0 || index1 == 3) hoehe = 3f ;
                     instanzCar(carrot, collCarrot, "collCarrot", index1);
                 }
             }
@@ -196,17 +215,17 @@ public class ib_balesMethPos : MonoBehaviour
                 if (x == -8)
                 {
                     if (index2 == 2 || index2 == 5) hoehe = 3f;
-                    instanzCar(failCarrot, fakeCarrot, "fakeCarrot", index2);
+                    instanzCar(fake(), fakeCarrot, "fakeCarrot", index2);
                 }
                 if (x == -24)
                 {
                     if (index2 == 1 || index2 == 4) hoehe = 3f;
-                    instanzCar(failCarrot, fakeCarrot, "fakeCarrot", index2);
+                    instanzCar(fake(), fakeCarrot, "fakeCarrot", index2);
                 }
                 if (x == -40)
                 {
                     if (index2 == 0 || index2 == 3) hoehe = 3f;
-                    instanzCar(failCarrot, fakeCarrot, "fakeCarrot", index2);
+                    instanzCar(fake(), fakeCarrot, "fakeCarrot", index2);
                 }
                 hoehe = 0;
             }
@@ -276,15 +295,15 @@ public class ib_balesMethPos : MonoBehaviour
 
                     if (x == -8)
                     {
-                        instanzCar(failCarrot, fakeCarrot, "fakeCarrot", index2);
+                        instanzCar(fake(), fakeCarrot, "fakeCarrot", index2);
                     }
                     if (x == -24)
                     {
-                        instanzCar(failCarrot, fakeCarrot, "fakeCarrot", index2);
+                        instanzCar(fake(), fakeCarrot, "fakeCarrot", index2);
                     }
                     if (x == -40)
                     {
-                        instanzCar(failCarrot, fakeCarrot, "fakeCarrot", index2);
+                        instanzCar(fake(), fakeCarrot, "fakeCarrot", index2);
                     }
                     hoehe = 0;
                 }
@@ -315,11 +334,11 @@ public class ib_balesMethPos : MonoBehaviour
 
             index1 = Random.Range(3, 6);
             index2 = 0;
-            float hoehe = 0f;
+           /*float hoehe = 0f;
 
             if (index1 <= 2) hoehe = 3f;
 
-
+            
             void instanzCar(GameObject child, GameObject neu, string name, int index)
             {
                 float pX = carPos[index].x; float pY = carPos[index].y; float pZ = carPos[index].z;
@@ -327,14 +346,14 @@ public class ib_balesMethPos : MonoBehaviour
                 GameObject neuesObjekt = Instantiate(child, parentObj.transform, false);
                 neuesObjekt.transform.Translate(realPos);
                 neuesObjekt.name = string.Format(name);
-            }
+            } */
 
             if (car)
             {
                  GameObject collCarrot = new GameObject();
                 if (x == -8 || x == -24 || x== -40)
                 {
-                    instanzCar(carrot, collCarrot, "collCarrot", index1);
+                   // instanzCar(carrot, collCarrot, "collCarrot", index1);
                 }
                 return collCarrot;
 
@@ -351,14 +370,14 @@ public class ib_balesMethPos : MonoBehaviour
 
                 if (index2 <= 2)
                 {
-                    hoehe = 3f;
+                   // hoehe = 3f;
                 }
 
                 if (x == -8 || x == -24 || x== -40)
                 {
-                    instanzCar(failCarrot, fakeCarrot, "fakeCarrot", index2);
+                    // instanzCar(fake(), fakeCarrot, "fakeCarrot", index2);
                 }
-               hoehe = 0;
+              // hoehe = 0;
                 return failCarrot;
             }
 

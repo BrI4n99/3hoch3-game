@@ -31,6 +31,7 @@ Transform:
   - {fileID: 4607258691456191139}
   - {fileID: 2536229316453088670}
   - {fileID: 2536229315682397689}
+  - {fileID: 4300647375949456023}
   - {fileID: 1937447720407357267}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -171,8 +172,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 60, y: 30, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 60, y: 60, z: 2}
+  m_Center: {x: 30, y: 30, z: 0}
 --- !u!1 &2536229315764199230
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,6 +364,50 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8012563891942627399, guid: 75bd6c331b84b43488b55bd8e80dd3d0, type: 3}
+--- !u!1 &6859033571587229158
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4300647375949456023}
+  - component: {fileID: 8445679720210198272}
+  m_Layer: 0
+  m_Name: Collider (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4300647375949456023
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6859033571587229158}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -50, y: 0, z: -29}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8796330383353350064}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!65 &8445679720210198272
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6859033571587229158}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 60, y: 60, z: 2}
+  m_Center: {x: 30, y: 30, z: 0}
 --- !u!1001 &2119378012158308536
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -408,7 +453,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 40802803aa7fa9c4a98e809cf42de941,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40802803aa7fa9c4a98e809cf42de941,
         type: 3}

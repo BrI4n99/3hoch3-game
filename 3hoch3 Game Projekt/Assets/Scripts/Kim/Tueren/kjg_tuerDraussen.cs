@@ -25,7 +25,7 @@ public class kjg_tuerDraussen : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "SheepWhite" && kjg_kuh.hasKuh && kjg_schwein.hasSchwein && kjg_huhn2.hasHuhn)
+        if (other.gameObject.name == "SheepWhite" && kjg_tiereVorTuer.kuhVorTuer && kjg_tiereVorTuer.schweinVorTuer && kjg_huhn2.hasHuhn)
         {
             SceneManager.LoadScene("kjg-draussen2");
         }

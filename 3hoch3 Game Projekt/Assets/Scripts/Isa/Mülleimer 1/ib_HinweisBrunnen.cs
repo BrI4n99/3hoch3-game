@@ -49,7 +49,7 @@ public class ib_HinweisBrunnen : MonoBehaviour
 
         if (otherObj.gameObject.tag == "Player")
         {
-            Debug.Log("Collider check HUHN");
+           //  Debug.Log("Collider check HUHN");
 
             if (touch != true )
             {

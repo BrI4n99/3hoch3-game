@@ -67,7 +67,7 @@ public class ib_StaticVar : MonoBehaviour
     private void Update()
     {
 
-        _lives = _startLives + (_carrots / 3) - _deads;
+        _lives =  (_carrots / 3) - _deads;
 
         if (_carrots == 0)
         {
@@ -99,6 +99,7 @@ public class ib_StaticVar : MonoBehaviour
 
 
         if (_lives <= 0 || _score <= 0) {
+            Debug.Log("Du hast leider verloren");
             SceneManager.LoadScene("ib_loose");
         }
 
@@ -110,12 +111,11 @@ public class ib_StaticVar : MonoBehaviour
     public void setLevel1Values()
     {
         _score = 500;
-        _startLives = 1;
-        _carrots = 0;
+        _carrots = 3;
         _eggs = 0;
         _deads = 0;
         _lives = 0;
-        _bonus = 250;
+        _bonus = 200;
 
         sheep0 = true;
         sheep1 = false;

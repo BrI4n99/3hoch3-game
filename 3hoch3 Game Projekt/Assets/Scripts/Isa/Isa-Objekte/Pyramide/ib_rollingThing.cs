@@ -12,7 +12,7 @@ public class ib_rollingThing : MonoBehaviour
     public AudioClip puffSound;
 
     public static int bonus = 0;
-    Rigidbody rigidbody;
+    Rigidbody rb;
     Rigidbody rbBarrel;
 
     public float thrust = 10f;
@@ -20,7 +20,7 @@ public class ib_rollingThing : MonoBehaviour
     GameObject partikel;
 
     bool first;
-    bool second; 
+   // bool second; 
 
     IB_Star starScript;
 
@@ -34,7 +34,7 @@ public class ib_rollingThing : MonoBehaviour
     {
         starScript = IB_Star.Instance;
         first = true;
-        second = true;
+       // second = true;
         canvas = GameObject.FindGameObjectWithTag("ib_LevelUI").GetComponent<Canvas>();
         star = canvas.transform.GetChild(0).GetComponent<Image>();
 
@@ -57,18 +57,18 @@ public class ib_rollingThing : MonoBehaviour
                 if (eines.gameObject.tag == "explosion")
                 {
                     // Pyramide zum Einsturz bringen
-                    Debug.Log("'Puff");
-                    rigidbody = eines.GetComponent<Rigidbody>();                            // Eigenschaften der zu löschenden Ballen verändern 
-                    rigidbody.isKinematic = false;
-                    rigidbody.drag = 0.3f;
+                    Debug.Log("'Puff - die Pyramide ist eingestürzt");
+                    rb = eines.GetComponent<Rigidbody>();                            // Eigenschaften der zu löschenden Ballen verändern 
+                    rb.isKinematic = false;
+                    rb.drag = 0.3f;
 
                     Vector3 pos = eines.transform.position;
                     Vector3 target = new Vector3(pos.x, pos.y + 3, pos.z);
 
                     eines.transform.LookAt(target);
-                    rigidbody.AddRelativeForce(0, 0, thrust);                               // Kraft hinzufügen
-                    rigidbody.AddForce((target - pos) * thrust);
-                    rigidbody.AddForce(0, 0, thrust, ForceMode.Impulse);
+                    rb.AddRelativeForce(0, 0, thrust);                               // Kraft hinzufügen
+                    rb.AddForce((target - pos) * thrust);
+                    rb.AddForce(0, 0, thrust, ForceMode.Impulse);
                     StartCoroutine(waiting(eines.gameObject));
 
                     Destroy(eines.gameObject, 0.85f);                                       // Zeitverzögert löschen
@@ -77,15 +77,15 @@ public class ib_rollingThing : MonoBehaviour
                 if (first)
                 {
                                                          // Punkte addieren
-                    ib_StaticVar._score += 250;
+                    ib_StaticVar._score += 200;
                     StartCoroutine(zoom());
-                    Debug.Log("Bonuspunkte: 'Yeees, der Weg ist frei.'");
+                    Debug.Log("+ 200 Punkte: 'Yeees, der Weg ist frei.'");
                     first = false;
 
 
                 }
                 
-                Debug.Log("Partikel");                                                      // Partikelsystem 
+                // Debug.Log("Partikel");                                                      // Partikelsystem 
                 partikel = Instantiate(staub, transform.position, Quaternion.identity);     
                 AudioSource.PlayClipAtPoint(puffSound, transform.position);                 // Geräusch der einstürzenden Pyramide
 
@@ -98,7 +98,7 @@ public class ib_rollingThing : MonoBehaviour
         // Charakter: Sound für rollendes Fass ---------------------------------------------------------------
         if (otherObj.gameObject.tag == "Player" || otherObj.gameObject.name == "Kopf")
         {
-            Debug.Log("'It's a rolling thing.'");
+            
             GetComponent<Rigidbody>().AddForce(transform.forward * 20);
             rolling.Play();
         }
@@ -108,7 +108,7 @@ public class ib_rollingThing : MonoBehaviour
     {
         //partikel.SetActive(false);
         Destroy(partikel);
-        Debug.Log("WaitingFor2secs");
+     
         yield return new WaitForSeconds(2f);
         Destroy(eines.gameObject, 1.5f);
 

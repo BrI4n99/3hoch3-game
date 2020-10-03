@@ -7,7 +7,7 @@ public class ib_splat : MonoBehaviour
 
     public AudioSource water;
     private bool touch;
-    private int abzug = 75;
+    private int abzug = 100;
     // Start is called before the first frame update
     void Start()
     {

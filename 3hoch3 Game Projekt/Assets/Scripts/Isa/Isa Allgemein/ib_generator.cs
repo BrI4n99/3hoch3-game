@@ -40,7 +40,7 @@ public class ib_generator : MonoBehaviour
     public static int randEggs = -1;
     public static int randHeuKurz = -1;
 
-    private float posZstart = 360;
+    // private float posZstart = 360;
 
 
     // Start is called before the first frame update

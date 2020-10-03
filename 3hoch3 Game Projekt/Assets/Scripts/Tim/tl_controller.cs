@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class tl_controller : LivingCreature
 {
@@ -49,19 +50,29 @@ public class tl_controller : LivingCreature
     private float durationPush;
     private Vector3 pushDirection;
 
+    //Spieler hat Trigger des Wassers betreten
+    private bool hasEntered;
+
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         //------------------ Death des Players -----------------------------------
         if (hit.gameObject.name == "StrawBale")
         {
-            print("Player lost");
-            playerAlive = false;
+                print("Player lost");
+                playerAlive = false;
         }
 
         if (hit.gameObject.name == "Water Collider")
         {
-            print("Player lost");
             playerAlive = false;
+            if (!hasEntered)
+            {
+                hasEntered = true;
+                print("Player lost");
+                StartCoroutine("reduceStats");
+                //playerAlive = false;
+            }
+            
         }
         //------------------------------------------------------------------------
 
@@ -165,7 +176,7 @@ public class tl_controller : LivingCreature
         transform.rotation = spawnpoint.transform.rotation;
 
         //Kamera
-        camera.transform.position = new Vector3(transform.position.x, camera_height, transform.position.z - 2.2f);
+        camera.transform.position = new Vector3(transform.position.x, camera_height, transform.position.z - 0.8f);
     }
 
     // Update is called once per frame
@@ -232,13 +243,9 @@ public class tl_controller : LivingCreature
 
         //Camera
         camera.transform.parent = transform;
-        //camera.transform.position = new Vector3(camera.transform.position.x, transform.position.y + camera_height, camera.transform.position.z);
-        //camera.transform.position = new Vector3(transform.position.x, camera_height, transform.position.z - 2.2f);
-
-        //camera.transform.rotation = Quaternion.Euler(22, transform.rotation.y, 0);
 
         //Eier werfen
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && ib_StaticVar._eggs > 0)
         {
             GameObject egg = objectPooler.SpawnFromPool("Egg", eggSpawn.transform.position, eggSpawn.transform.rotation);
             Vector3 direction = Quaternion.AngleAxis(forceAngle, eggSpawn.transform.right) * eggSpawn.transform.forward;
@@ -253,8 +260,22 @@ public class tl_controller : LivingCreature
             transform.position = spawnpoint.transform.position;
             transform.rotation = spawnpoint.transform.rotation;
 
-            ib_StaticVar._lives --;
-            playerAlive = true;
+            //ib_StaticVar._lives --;
+            //ib_StaticVar._score -= 200;
+
+            //Wenn keine Leben mehr vorhanden zum Loose Bildschirm, ansonsten respawn
+            if (ib_StaticVar._lives >= 0)
+            {
+                playerAlive = true;
+            }
+            else
+            {
+                SceneManager.LoadScene("ib_loose");
+            }
+        }
+        if (ib_StaticVar._lives < 0 || ib_StaticVar._score < 0 || ib_StaticVar._eggs < 0)
+        {
+            SceneManager.LoadScene("ib_loose");
         }
     }
 
@@ -265,6 +286,7 @@ public class tl_controller : LivingCreature
         hitEnemy = false;
     }
 
+    //Schaf bekommt Hit von Enemy und wird zurückgeworfen
     IEnumerator takePushFromEnemy(GameObject enemy)
     {
         durationPush = 2f;
@@ -278,5 +300,14 @@ public class tl_controller : LivingCreature
             durationPush -= Time.smoothDeltaTime;
             yield return null;
         }
+    }
+
+    //Leben und Punkte abziehen
+    IEnumerator reduceStats()
+    {
+        yield return new WaitForSeconds(0.1f);
+        ib_StaticVar._lives--;
+        ib_StaticVar._score -= 200;
+        hasEntered = false;
     }
 }

@@ -10,7 +10,6 @@ public class ib_flyingEggs : MonoBehaviour
     public float orientation;
 
     bool eggHit;
-    bool touch;
 
     // public static int eggCounter = 0;
 
@@ -44,7 +43,6 @@ public class ib_flyingEggs : MonoBehaviour
                 Debug.Log("Eieieeieieiei!");
                 Destroy(gameObject);
                 eggHit = true;
-                touch = true;
 
                
             }

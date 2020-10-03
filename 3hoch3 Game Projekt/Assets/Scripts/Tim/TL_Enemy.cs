@@ -9,20 +9,24 @@ public class TL_Enemy : LivingCreature
     NavMeshAgent pathfinder;
     Transform target;
 
+    bool start = false;
+
     public override void Start()
     {
         base.Start();
 
         pathfinder = GetComponent<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
-
-        StartCoroutine(UpdatePath());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (GetComponent<NavMeshAgent>().enabled == true && start == false)
+        {
+            StartCoroutine(UpdatePath());
+            start = true;
+        }
     }
 
     IEnumerator UpdatePath()

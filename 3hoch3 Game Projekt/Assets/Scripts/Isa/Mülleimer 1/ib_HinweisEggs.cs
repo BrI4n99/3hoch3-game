@@ -49,13 +49,13 @@ public class ib_HinweisEggs : MonoBehaviour
 
     public void OnTriggerEnter(Collider otherObj)
     {
-        Debug.Log("Collider check");
+       
         if (otherObj.gameObject.tag == "Player")
         {
 
             if (touch != true && sheepPos.z < 520)
             {
-                print("canvasScale" + canvasScale);
+            
 
                 StartCoroutine(openSign());
                 touch = true;

@@ -37,19 +37,19 @@ public class ib_eggsFalling : MonoBehaviour
     IEnumerator falling() {
 
 
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(2.2f);
         if (egg1 != null)
         {
             egg1.GetComponent<Rigidbody>().isKinematic = false;
             egg1.GetComponent<Rigidbody>().useGravity = true;
         }
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(3.3f);
         if (egg2 != null)
         {
             egg2.GetComponent<Rigidbody>().isKinematic = false;
             egg2.GetComponent<Rigidbody>().useGravity = true;
         }
-        yield return new WaitForSeconds(4.5f);
+        yield return new WaitForSeconds(4.25f);
         if (egg3 != null)
         {
             egg3.GetComponent<Rigidbody>().isKinematic = false;

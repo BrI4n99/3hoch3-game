@@ -9,6 +9,9 @@ public class LivingCreature : MonoBehaviour, IDamageable
     protected float health;
     protected bool dead;
 
+    //WinLogic
+    public GameObject winLogic;
+
     [Header("Unity Stuff")]
     public Image healthBar;
 
@@ -23,6 +26,9 @@ public class LivingCreature : MonoBehaviour, IDamageable
 
         healthBar.fillAmount = health / startingHealth;
 
+        //Punkte
+        ib_StaticVar._score += 50;
+
         if (health <= 0 && !dead)
         {
             Die();
@@ -32,6 +38,8 @@ public class LivingCreature : MonoBehaviour, IDamageable
     public void Die()
     {
         dead = true;
+        ib_StaticVar._score += 1000;
+        winLogic.SetActive(true);
         Destroy(gameObject);
     }
 }

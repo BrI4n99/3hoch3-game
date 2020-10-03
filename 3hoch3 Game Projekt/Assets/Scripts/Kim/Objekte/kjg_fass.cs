@@ -6,7 +6,7 @@ public class kjg_fass : MonoBehaviour
 {
     GameObject sheep;
     Rigidbody fassRigidbody;
-    private float rollenSpeed = 1500;
+    private float rollenSpeed = 1000;
     private bool rollen;
     // Start is called before the first frame update
     void Start()

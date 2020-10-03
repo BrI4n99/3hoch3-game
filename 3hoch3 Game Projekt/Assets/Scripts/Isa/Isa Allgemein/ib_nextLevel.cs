@@ -27,11 +27,10 @@ public class ib_nextLevel : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("bonus " + ib_StaticVar._bonus);
+            Debug.Log("Du erhälst " + ib_StaticVar._bonus + " Bonuspunkte.");
             ib_StaticVar._score += ib_StaticVar._bonus;
             nextLevel = true;
-            Debug.Log("SET TRUE");
-            Debug.Log("now " + nextLevel);
+            Debug.Log("Du hast das Level geschafft. Weiter geht's!");
             SceneManager.LoadScene("ib_nextLevel2");
         }
         nextLevel = false;

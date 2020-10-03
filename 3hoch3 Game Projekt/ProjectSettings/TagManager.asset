@@ -25,6 +25,7 @@ TagManager:
   - lightKey
   - fassRollen
   - ib_poison
+  - kjg_light
   layers:
   - Default
   - TransparentFX

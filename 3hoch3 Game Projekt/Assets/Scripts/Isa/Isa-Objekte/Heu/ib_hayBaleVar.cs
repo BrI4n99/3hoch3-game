@@ -133,7 +133,7 @@ public class ib_hayBaleVar : MonoBehaviour
         //if (otherObj.gameObject.tag == "PlayerColl")
         //if (otherObj.gameObject.name == "Kopf" || otherObj.gameObject.name == "beineVorn" || otherObj.gameObject.name == "beineHinten" || otherObj.gameObject.name == "Koerper")
         {
-            Debug.Log("test2");
+            
             if (touch != true)
             {
                 // minuspunkte += abzug;

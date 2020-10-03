@@ -10,14 +10,14 @@ public class kjg_schwein : MonoBehaviour
     private GameObject followObject;
 
     public float targetDistance;
-    public float allowedDistance;
+    public float allowedDistance = 4;
     public float fspeed;
     private float sec;
 
     public RaycastHit distanceTier; //für die Distanz zu Sheep
 
     private bool up;
-    private bool folgen;
+    public static bool folgen;
     public static bool hasSchwein;
     public static bool schweinFirst;
 
@@ -44,18 +44,17 @@ public class kjg_schwein : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "SheepWhite" && !kjg_kuh.hasKuh)
+        if ((other.gameObject.name == "SheepWhite" && !kjg_kuh.hasKuh) || (other.gameObject.name == "SheepWhite" && kjg_tiereVorTuer.kuhVorTuer))
         {
             folgen = true;
             hasSchwein = true;
-            followObject = sheep;
             Debug.Log("Schwein folgt Schaf");
         }
         else if (other.gameObject.name == "SheepWhite" && kjg_kuh.hasKuh) {
-            folgen = true;
-            hasSchwein = true;
-            followObject = kuh;
-            Debug.Log("Schwein folgt Kuh");
+            folgen = false;
+            //hasSchwein = true;
+            //followObject = kuh;
+            //Debug.Log("Schwein folgt Kuh");
         }
        
     }
@@ -65,14 +64,14 @@ public class kjg_schwein : MonoBehaviour
         //Damit Tier dem Schaf folgt
         if (folgen)
         {
-            transform.LookAt(followObject.transform);
+            transform.LookAt(sheep.transform);
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out distanceTier))
             {
                 targetDistance = distanceTier.distance;
                 if (targetDistance >= allowedDistance)
                 {
                     fspeed = 0.3f;
-                    transform.position = Vector3.MoveTowards(transform.position, followObject.transform.position, fspeed);
+                    transform.position = Vector3.MoveTowards(transform.position, sheep.transform.position, fspeed);
                 }
                 else
                 {

@@ -13,7 +13,7 @@ public class ib_fence : MonoBehaviour
     public float ab =0;
     public float barHeight = 3.7f;
     
-    public int abzug = -25;
+    public int abzug = -75;
     private bool touch = false;
     public static int minuspunkte = 0;
 

@@ -6,7 +6,7 @@ using UnityEngine;
 public class ib_button : MonoBehaviour
 {
     public Animator animator; 
-    BoxCollider beineVorn = new BoxCollider();
+  //  BoxCollider beineVorn = new BoxCollider();
     
     public GameObject button;
     public GameObject fullBucket;
@@ -18,7 +18,7 @@ public class ib_button : MonoBehaviour
     public static bool first;
     public static bool second = true;
     public bool buttonStatus = false;
-    bool moveBucket;
+   // bool moveBucket;
 
     int counter = 0;
     public static int bonuspunkte = 0;
@@ -49,12 +49,10 @@ public class ib_button : MonoBehaviour
 
         if (first == true && second == true)
         {
-            Debug.Log("Play und Move");
             StartCoroutine(Move());
          
             second = false;
             first = false;
-            // bonuspunkte = 150;
 
             
         }
@@ -66,7 +64,6 @@ public class ib_button : MonoBehaviour
     {
         if (other.gameObject.name == "beineButton")
         {
-            print("enter");
             buttonStatus = true;
         }
     }
@@ -75,7 +72,6 @@ public class ib_button : MonoBehaviour
     {
         if (other.gameObject.name == "beineButton")
         {
-            print("exit");
             buttonStatus = false;
            
             if (counter < 3)
@@ -88,8 +84,6 @@ public class ib_button : MonoBehaviour
                 first = true;
                 chain.Play();
             }
-
-            Debug.Log(counter);
             
         }
     }
@@ -97,15 +91,14 @@ public class ib_button : MonoBehaviour
     IEnumerator Move()
     {
         second = false;
-        print("Move");
         yield return new WaitForSeconds(2f);
         fullBucket.transform.position += transform.position;
         fullBucket.transform.position = new Vector3(-10.5f, 6.5f, 29.3f + distance);
         yield return new WaitForSeconds(2f);
         fullBucket.transform.position = new Vector3(-10.5f, 10.5f, 29.3f + distance);
 
-        Debug.Log("150 Punkte");
-        ib_StaticVar._score += 150;
+        Debug.Log("+ 100 Punkte: Du hast es geschafft. Dein Durst ist gestillt.");
+        ib_StaticVar._score += 100;
         StartCoroutine(starScript.zoom2());
 
     }

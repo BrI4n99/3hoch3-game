@@ -272,6 +272,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7820163737121542268}
     m_Modifications:
+    - target: {fileID: 2435343158419306740, guid: 47d25c0ca0d76ce49ac619b9256d3f52,
+        type: 3}
+      propertyPath: m_Name
+      value: "Beschr\xE4nkungWiese"
+      objectReference: {fileID: 0}
     - target: {fileID: 3215374818948854588, guid: 47d25c0ca0d76ce49ac619b9256d3f52,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -332,6 +337,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5868055423750844777, guid: 47d25c0ca0d76ce49ac619b9256d3f52,
+        type: 3}
+      propertyPath: m_Name
+      value: "Beschr\xE4nkungWiese"
+      objectReference: {fileID: 0}
     - target: {fileID: 6236835526114455463, guid: 47d25c0ca0d76ce49ac619b9256d3f52,
         type: 3}
       propertyPath: m_Name
@@ -346,6 +356,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -3.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8484753782217922935, guid: 47d25c0ca0d76ce49ac619b9256d3f52,
+        type: 3}
+      propertyPath: m_Name
+      value: "Beschr\xE4nkungWiese"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47d25c0ca0d76ce49ac619b9256d3f52, type: 3}

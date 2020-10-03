@@ -18,7 +18,7 @@ public class kjg_kuh : MonoBehaviour
     public RaycastHit distanceSheep; //für die Distanz zu Sheep
 
     private bool up;
-    private bool folgen;
+    public static bool folgen;
     public static bool hasKuh;
     public static bool kuhFirst;
     private void Start()
@@ -44,10 +44,13 @@ public class kjg_kuh : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "SheepWhite") {
-            followObject = sheep;
+        if ((other.gameObject.name == "SheepWhite" && !kjg_schwein.hasSchwein) || (other.gameObject.name == "SheepWhite" && kjg_tiereVorTuer.schweinVorTuer))
+        {
             folgen = true;
             hasKuh = true;
+        }
+        else if(other.gameObject.name == "SheepWhite" && kjg_schwein.hasSchwein){
+            folgen = false;
         }
     }
 
@@ -56,14 +59,14 @@ public class kjg_kuh : MonoBehaviour
         //Damit Kuh dem Schaf folgt
         if (folgen) {
             
-            transform.LookAt(followObject.transform);
+            transform.LookAt(sheep.transform);
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out distanceSheep))
             {
                 targetDistance = distanceSheep.distance;
                 if (targetDistance >= allowedDistance) // wenn Kuh weiter weg als allowedDistance, dann laufen
                 {
                     fspeed = 0.3f;
-                    transform.position = Vector3.MoveTowards(transform.position, followObject.transform.position, fspeed);
+                    transform.position = Vector3.MoveTowards(transform.position, sheep.transform.position, fspeed);
                 }
                 else
                 {

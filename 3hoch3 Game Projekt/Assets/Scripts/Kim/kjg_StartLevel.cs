@@ -6,7 +6,15 @@ public class kjg_StartLevel : MonoBehaviour
 {
     //Objekte Scheune
     public GameObject wand;
-    public GameObject tomatenKiste;
+    public GameObject tomatenKiste1;
+    public GameObject tomatenKiste2;
+    public GameObject tomatenKiste3;
+    public GameObject tomatenKiste4;
+    public GameObject tomatenKiste5;
+    public GameObject tomatenKiste6;
+    public GameObject tomatenKiste7;
+    public GameObject tomatenKiste8;
+
     public GameObject dach1;
     public GameObject dach2;
     public GameObject seite;
@@ -33,12 +41,21 @@ public class kjg_StartLevel : MonoBehaviour
     void Start()
     {
         keyAnzeige.SetActive(false);
+        tomatenKiste1.SetActive(false);
+        tomatenKiste2.SetActive(false);
+        tomatenKiste3.SetActive(false);
+        tomatenKiste4.SetActive(false);
+        tomatenKiste5.SetActive(false);
+        tomatenKiste6.SetActive(false);
+        tomatenKiste7.SetActive(false);
+        tomatenKiste8.SetActive(false);
 
-        //-------------------------------------------WÄNDE--------------------------------------------------------
+
+        /*/-------------------------------------------WÄNDE--------------------------------------------------------
         Instantiate(wand);
         Instantiate(wand, new Vector3(25,3,50),Quaternion.Euler(new Vector3(0,180,0)));
         Instantiate(wand, new Vector3(50, 3, 25), Quaternion.Euler(new Vector3(0, 270, 0)));
-        Instantiate(wand, new Vector3(0, 3, 25), Quaternion.Euler(new Vector3(0, 90, 0)));
+        Instantiate(wand, new Vector3(0, 3, 25), Quaternion.Euler(new Vector3(0, 90, 0)));*/
 
         //---------------------------COROUTINES FÜR ANDERE OBJEKTE-----------------------------------------------
         StartCoroutine(activateTiere(kuh));
@@ -50,8 +67,14 @@ public class kjg_StartLevel : MonoBehaviour
             StartCoroutine(activateKey(keys));
         }
         StartCoroutine(activateOtherObjects());
-
-
+        StartCoroutine(activateTomatenkiste(tomatenKiste1));
+        StartCoroutine(activateTomatenkiste(tomatenKiste2));
+        StartCoroutine(activateTomatenkiste(tomatenKiste3));
+        StartCoroutine(activateTomatenkiste(tomatenKiste4));
+        StartCoroutine(activateTomatenkiste(tomatenKiste5));
+        StartCoroutine(activateTomatenkiste(tomatenKiste6));
+        StartCoroutine(activateTomatenkiste(tomatenKiste7));
+        StartCoroutine(activateTomatenkiste(tomatenKiste8));
     }
     //--------------------------TIERE------------------------------------
     IEnumerator activateTiere(GameObject tierObject)
@@ -64,19 +87,6 @@ public class kjg_StartLevel : MonoBehaviour
     IEnumerator activateOtherObjects()
     {
         yield return new WaitForSeconds(5f);
-        //----------------------------------------TOMATENKISTEN---------------------------------------------------
-
-        Instantiate(tomatenKiste, new Vector3(49.8f, 0.6f, 30f), Quaternion.Euler(new Vector3(-26.4f, 90, 0)));
-        Instantiate(tomatenKiste, new Vector3(49.8f, 0.2f, 30f), Quaternion.Euler(new Vector3(0, 90, 0)));
-
-        Instantiate(tomatenKiste, new Vector3(49.8f, 0.6f, 40.8f), Quaternion.Euler(new Vector3(-26.4f, 90, 0)));
-        Instantiate(tomatenKiste, new Vector3(49.8f, 0.2f, 40.8f), Quaternion.Euler(new Vector3(0, 90, 0)));
-
-        Instantiate(tomatenKiste, new Vector3(39.2f, 0.6f, 33.5f), Quaternion.Euler(new Vector3(-26.4f, -90, 0)));
-        Instantiate(tomatenKiste, new Vector3(39.2f, 0.2f, 33.5f), Quaternion.Euler(new Vector3(0, -90, 0)));
-
-        Instantiate(tomatenKiste, new Vector3(35, 0.6f, 44), Quaternion.Euler(new Vector3(-26.4f, 0, 0)));
-        Instantiate(tomatenKiste, new Vector3(35, 0.2f, 44), Quaternion.identity);
 
         //------------------------------------------PYRAMIDE------------------------------------------------------
         //1.Reihe
@@ -115,6 +125,13 @@ public class kjg_StartLevel : MonoBehaviour
     //--------------------------KEY & FASS------------------------------
     IEnumerator activateKey(GameObject otherObject) {
         yield return new WaitForSeconds(0.7f);
+        otherObject.SetActive(true);
+    }
+
+    //---------------------TOMATENKISTE--------------------------------
+    IEnumerator activateTomatenkiste(GameObject otherObject)
+    {
+        yield return new WaitForSeconds(5f);
         otherObject.SetActive(true);
     }
 

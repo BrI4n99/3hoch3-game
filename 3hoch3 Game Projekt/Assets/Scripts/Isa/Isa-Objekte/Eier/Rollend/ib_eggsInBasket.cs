@@ -28,7 +28,7 @@ public class ib_eggsInBasket : MonoBehaviour
         int lr1 = 2;
         int lr2 = 0;   
 
-        meth.einfach(ib_balesMethPos.posX[lr1], ib_balesMethPos.posY[0], ib_balesMethPos.abstand*i, false, false, gameObject).transform.parent = gameObject.transform; i++;
+        meth.einfach(ib_balesMethPos.posX[lr1], ib_balesMethPos.posY[0], ib_balesMethPos.abstand*i, false, true, gameObject).transform.parent = gameObject.transform; i++;
         meth.einfach(ib_balesMethPos.posX[lr2], ib_balesMethPos.posY[0], ib_balesMethPos.abstand*i, true, false, gameObject).transform.parent = gameObject.transform; i++;
 
 

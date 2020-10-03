@@ -22,8 +22,8 @@ public class ib_balesMid : MonoBehaviour
         meth.drei(ib_balesMethPos.posX[0],     ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i, gameObject);  i++;   lr = -lr; 
         meth.hoch(ib_balesMethPos.posX[Random.Range(0, 3)],               ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i, true, false, gameObject);                                        i++;   
         meth.vier(ib_balesMethPos.posX[2+lr],     ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i, gameObject);                     i++; lr = -lr; 
-        meth.breit(ib_balesMethPos.posX[0],     ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i,   true, false, gameObject);  i++;
-        meth.fuenf(ib_balesMethPos.posX[Random.Range(0, 3)], ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i, gameObject); i++;
+        meth.breit(ib_balesMethPos.posX[0],     ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i,   true, ib_balesMethPos.randBool, gameObject);  i++;
+        meth.fuenf(ib_balesMethPos.posX[Random.Range(0, 3)], ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i, gameObject); 
 
         // Zaunelemente - erstellen
         Vector3 posF1 =   new Vector3(-46,  0, 28); 

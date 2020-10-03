@@ -50,7 +50,7 @@ public class ib_controllerNeu : MonoBehaviour
             // Sprinten
             if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
             {
-                endspeed = speed * 1.25f;
+                endspeed = speed * 1.35f;
             }
             // normal
             else {
@@ -118,10 +118,10 @@ public class ib_controllerNeu : MonoBehaviour
     IEnumerator camUp()
     {
         headUp = false;
-        cam.transform.rotation = cam.transform.rotation * Quaternion.AngleAxis(12.0f * Time.deltaTime, Vector3.right);
+        cam.transform.rotation = cam.transform.rotation * Quaternion.AngleAxis(8.0f * Time.deltaTime, Vector3.right);
         yield return new WaitForSeconds(0.75f);
     
-        cam.transform.rotation = cam.transform.rotation * Quaternion.AngleAxis(-12.0f * Time.deltaTime, Vector3.right);
+        cam.transform.rotation = cam.transform.rotation * Quaternion.AngleAxis(-8.0f * Time.deltaTime, Vector3.right);
         yield return new WaitForSeconds(0.75f);
         headUp = true;
     }

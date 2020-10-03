@@ -17,11 +17,11 @@ public class ib_balesSimple01 : MonoBehaviour
         int lr = Random.Range(0, 2);
         if (lr == 1) lr = 2;
         
-        meth.einfach(ib_balesMethPos.posX[0 + lr],               ib_balesMethPos.posY[0], ib_balesMethPos.abstand,       true,  true, gameObject);                     i++;     lr = -lr; 
+        meth.einfach(ib_balesMethPos.posX[0 + lr],               ib_balesMethPos.posY[0], ib_balesMethPos.abstand, ib_balesMethPos.randBool, ib_balesMethPos.randBool, gameObject);        i++;     lr = -lr; 
         meth.breit(ib_balesMethPos.posX[Random.Range(0, 3)],     ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i,   false, ib_balesMethPos.randBool, gameObject);  i++; 
-        meth.hoch(ib_balesMethPos.posX[2 + lr],               ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i, true, false, gameObject);                                        i++;   
+        meth.hoch(ib_balesMethPos.posX[2 + lr],                  ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i, ib_balesMethPos.randBool, false, gameObject);    i++;   
         meth.breit(ib_balesMethPos.posX[Random.Range(0, 3)],     ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i,   false,  true, gameObject);                     i++; 
-        meth.drei(ib_balesMethPos.posX[Random.Range(0, 3)],      ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i, gameObject);                                     i++;
+        meth.drei(ib_balesMethPos.posX[Random.Range(0, 3)],      ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i, gameObject);                                  
        
     }
 

@@ -12,12 +12,15 @@ public class kjg_huhn2 : MonoBehaviour
     public GameObject ziel6;
     public GameObject ziel7;
     public GameObject ziel8;
+    public GameObject sheep;
 
 
     public float targetDistance;
     public float allowedDistance;
-    public float fspeed;
+    private float fspeed;
+    public float speed;
     private float sec;
+    private float zeit;
     private int zaehlerGO;
 
     public static bool hasHuhn;
@@ -28,7 +31,8 @@ public class kjg_huhn2 : MonoBehaviour
     
     private void Start()
     {
-      
+        up = true;
+        gameObject.SetActive(false);
         zaehlerGO = 0;
     }
     IEnumerator jumpUp(float seconds)
@@ -65,8 +69,8 @@ public class kjg_huhn2 : MonoBehaviour
                     targetDistance = zielDistance.distance;
                     if (targetDistance >= allowedDistance)
                     {
-                        fspeed = 0.05f;
-                        transform.position = Vector3.MoveTowards(transform.position, ziel1.transform.position + new Vector3(0, 0.3f, 0), fspeed);
+                        fspeed = speed;
+                        transform.position = Vector3.MoveTowards(transform.position, ziel1.transform.position , fspeed);
                     }
                     else
                     {
@@ -90,8 +94,8 @@ public class kjg_huhn2 : MonoBehaviour
                     targetDistance = zielDistance.distance;
                     if (targetDistance >= allowedDistance)
                     {
-                        fspeed = 0.05f;
-                        transform.position = Vector3.MoveTowards(transform.position, ziel2.transform.position + new Vector3(0, 0.3f, 0), fspeed);
+                        fspeed = speed;
+                        transform.position = Vector3.MoveTowards(transform.position, ziel2.transform.position, fspeed);
                     }
                     else
                     {
@@ -115,8 +119,8 @@ public class kjg_huhn2 : MonoBehaviour
                     targetDistance = zielDistance.distance;
                     if (targetDistance >= allowedDistance)
                     {
-                        fspeed = 0.05f;
-                        transform.position = Vector3.MoveTowards(transform.position, ziel3.transform.position + new Vector3(0, 0.3f, 0), fspeed);
+                        fspeed = speed;
+                        transform.position = Vector3.MoveTowards(transform.position, ziel3.transform.position , fspeed);
                     }
                     else
                     {
@@ -140,8 +144,8 @@ public class kjg_huhn2 : MonoBehaviour
                     targetDistance = zielDistance.distance;
                     if (targetDistance >= allowedDistance)
                     {
-                        fspeed = 0.05f;
-                        transform.position = Vector3.MoveTowards(transform.position, ziel4.transform.position + new Vector3(0, 0.3f, 0), fspeed);
+                        fspeed = speed;
+                        transform.position = Vector3.MoveTowards(transform.position, ziel4.transform.position, fspeed);
                     }
                     else
                     {
@@ -165,8 +169,8 @@ public class kjg_huhn2 : MonoBehaviour
                     targetDistance = zielDistance.distance;
                     if (targetDistance >= allowedDistance)
                     {
-                        fspeed = 0.05f;
-                        transform.position = Vector3.MoveTowards(transform.position, ziel5.transform.position + new Vector3(0, 0.3f, 0), fspeed);
+                        fspeed = speed;
+                        transform.position = Vector3.MoveTowards(transform.position, ziel5.transform.position, fspeed);
                     }
                     else
                     {
@@ -190,8 +194,8 @@ public class kjg_huhn2 : MonoBehaviour
                     targetDistance = zielDistance.distance;
                     if (targetDistance >= allowedDistance)
                     {
-                        fspeed = 0.05f;
-                        transform.position = Vector3.MoveTowards(transform.position, ziel6.transform.position + new Vector3(0, 0.3f, 0), fspeed);
+                        fspeed = speed;
+                        transform.position = Vector3.MoveTowards(transform.position, ziel6.transform.position, fspeed);
                     }
                     else
                     {
@@ -215,8 +219,8 @@ public class kjg_huhn2 : MonoBehaviour
                     targetDistance = zielDistance.distance;
                     if (targetDistance >= allowedDistance)
                     {
-                        fspeed = 0.05f;
-                        transform.position = Vector3.MoveTowards(transform.position, ziel7.transform.position + new Vector3(0, 0.3f, 0), fspeed);
+                        fspeed = speed;
+                        transform.position = Vector3.MoveTowards(transform.position, ziel7.transform.position, fspeed);
                     }
                     else
                     {
@@ -240,8 +244,8 @@ public class kjg_huhn2 : MonoBehaviour
                     targetDistance = zielDistance.distance;
                     if (targetDistance >= allowedDistance)
                     {
-                        fspeed = 0.05f;
-                        transform.position = Vector3.MoveTowards(transform.position, ziel8.transform.position + new Vector3(0, 0.3f, 0), fspeed);
+                        fspeed = speed;
+                        transform.position = Vector3.MoveTowards(transform.position, ziel8.transform.position, fspeed);
                     }
                     else
                     {
@@ -252,67 +256,27 @@ public class kjg_huhn2 : MonoBehaviour
                 if (kjg_huhnZiel1.z1Erreicht)
                 {
                     Debug.Log("Ziel 8 erreicht");
-                    gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
-                    //zaehlerGO = 2;
+                    zaehlerGO = 9;
                     kjg_huhnZiel1.z1Erreicht = false;
                 }
-
+                break;
+            case 9:
+                zeit = Time.deltaTime;
                 sec = 0.3f;
                 //Hovering / Floating
-
                 if (up)
-                    {
-                        StartCoroutine(jumpUp(sec));
-                    }
-                    else
-                    {
-                        StartCoroutine(jumpDown(sec));
-                    }
-                
-
-                break;
-
-        }
-        /*if (kjg_tuer.offen && !kjg_huhnZiel1.go2) {
-            go1 = true;
-            if (go1){
-                transform.LookAt(ziel1.transform);
-                if (Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.forward), out zielDistance))
                 {
-                    targetDistance = zielDistance.distance;
-                    if (targetDistance >= allowedDistance)
-                    {
-                        fspeed = 0.3f;
-                        transform.position = Vector3.MoveTowards(transform.position, ziel1.transform.position + new Vector3(0, 0.3f, 0), fspeed);
-                    }
-                    else
-                    {
-                        fspeed = 0;
-                        //zähler erhöhen für switch
-                    }
-                }
-                go1 = false;
-            }
-            //kjg_tuer.offen = false;
-        }
-
-        if (kjg_huhnZiel1.go2) {
-            transform.LookAt(ziel2.transform);
-            if (Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.forward), out zielDistance))
-            {
-                targetDistance = zielDistance.distance;
-                if (targetDistance >= allowedDistance)
-                {
-                    fspeed = 0.3f;
-                    transform.position = Vector3.MoveTowards(transform.position, ziel2.transform.position + new Vector3(0, 0.3f, 0), fspeed);
+                    StartCoroutine(jumpUp(sec));
                 }
                 else
                 {
-                    fspeed = 0;
-                    kjg_huhnZiel1.go2 = false;
+                    StartCoroutine(jumpDown(sec));
                 }
-            }
-        }*/
 
+                if (zeit > 5) {
+                    gameObject.SetActive(false);
+                }
+                break;
+        }
     }
 }

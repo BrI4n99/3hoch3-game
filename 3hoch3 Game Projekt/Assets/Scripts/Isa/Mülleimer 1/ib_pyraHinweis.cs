@@ -44,7 +44,7 @@ public class ib_pyraHinweis : MonoBehaviour
 
     public void OnTriggerEnter(Collider otherObj)
     {
-        Debug.Log("Collider check");
+       
         if (otherObj.gameObject.tag == "Player")
         { 
             if (touch != true  && sheepPos.z < 1200)

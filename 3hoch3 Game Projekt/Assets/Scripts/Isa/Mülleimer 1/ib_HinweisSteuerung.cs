@@ -57,7 +57,7 @@ public class ib_HinweisSteuerung : MonoBehaviour
         {
             if (touch != true)
             {
-               
+                Debug.Log("Das Abenteuer geht los!");
                 StartCoroutine(openSign());
                 touch = true;
                 StartCoroutine(closeSign());
@@ -90,7 +90,7 @@ public class ib_HinweisSteuerung : MonoBehaviour
     public IEnumerator spielzeit()
     {
      
-        yield return new WaitForSeconds(120f);
+        yield return new WaitForSeconds(55f);
         abzug = true;
       
     }
@@ -98,8 +98,8 @@ public class ib_HinweisSteuerung : MonoBehaviour
     public IEnumerator abziehen()
     {
         go = false;    
-        yield return new WaitForSeconds(2f);
-        ib_StaticVar._bonus -= 2;
+        yield return new WaitForSeconds(1f);
+        ib_StaticVar._bonus -= 1;
         go = true;
     }
 }

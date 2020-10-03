@@ -8,7 +8,7 @@ public class ib_egg : MonoBehaviour
    // public static int eggCount = 0;
     public GameObject basketWithEggs;
     bool eggsCheck = false;
-    bool hitEgg = false;
+    // bool hitEgg = false;
     int abzug = 0; 
     AudioSource rollingEgg;
     public AudioClip klingeln; 
@@ -60,7 +60,7 @@ public class ib_egg : MonoBehaviour
        // if (hitEgg != true){
             if (otherObj.gameObject.tag == "Player" || otherObj.gameObject.name == "Kopf")
             {
-                Debug.Log("It's a rolling Egg.");
+               //  Debug.Log("It's a rolling Egg.");
                 rollingEgg = GetComponent<AudioSource>();
                 rb = GetComponent<Rigidbody>();
                 rollingEgg.Play();
@@ -68,7 +68,7 @@ public class ib_egg : MonoBehaviour
                 {
                     rollingEgg.Play();
                 }
-                hitEgg = true;
+                // hitEgg = true;
                 Invoke("abziehen", 15F);                  // nach 15 Sekunden 6 Eier abziehen
             }
 

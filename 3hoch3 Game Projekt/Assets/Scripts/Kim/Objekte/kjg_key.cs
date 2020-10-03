@@ -15,7 +15,7 @@ public class kjg_key : MonoBehaviour
    
     private void Start()
     {
-        //hasKey = true;
+        hasKey = true;
         gameObject.SetActive(false);
         floatUp = false;
         if (hasKey && kjg_sceneChanger.warDraussen) {

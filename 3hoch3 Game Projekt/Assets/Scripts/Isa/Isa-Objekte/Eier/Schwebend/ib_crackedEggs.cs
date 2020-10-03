@@ -39,6 +39,7 @@ public class ib_crackedEggs : MonoBehaviour
             Destroy(egg1, 0.1f) ;
             crack.Play();
             StartCoroutine(kaputteEier(posEgg1));
+            Debug.Log("Oh nein! Du warst zu langsam. Jetzt gibt es Spiegelei");
         }
 
         if (other.gameObject == egg2)

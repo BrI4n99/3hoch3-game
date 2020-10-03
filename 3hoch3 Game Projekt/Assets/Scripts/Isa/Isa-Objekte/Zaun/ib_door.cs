@@ -31,7 +31,7 @@ public class ib_door : MonoBehaviour
             if (rand == 1) {
                 door.transform.rotation = Quaternion.Lerp(door.transform.rotation, Quaternion.Euler(0, 165, 0), 40*  Time.deltaTime) ;
                 //door.transform.Rotate(new Vector3 (0, 135, 0) * Time.deltaTime );
-                Debug.Log("Open Door");
+                Debug.Log("Die Tür geht auf.");
             }
             if (rand == 2)
             {

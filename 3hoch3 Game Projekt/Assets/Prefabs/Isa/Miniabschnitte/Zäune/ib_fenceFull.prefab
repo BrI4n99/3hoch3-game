@@ -58,7 +58,6 @@ MonoBehaviour:
   uvFence: []
   fenceMat: {fileID: 2100000, guid: e8b0f14c3958b4b4498b023c29a46fb5, type: 2}
   myColl: {fileID: 0}
-  gras: {fileID: 7290647061038779715, guid: e9d561a9550df414e915ff79b7b61916, type: 3}
 --- !u!114 &-177483016810174564
 MonoBehaviour:
   m_ObjectHideFlags: 0

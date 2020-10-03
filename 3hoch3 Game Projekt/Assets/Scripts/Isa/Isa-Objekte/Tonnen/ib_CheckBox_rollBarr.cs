@@ -63,7 +63,7 @@ public class ib_CheckBox_rollBarr : MonoBehaviour
 
     void OnTriggerEnter(Collider other) 
     {
-         Debug.Log("test touch checkbox");
+      
         if (other.gameObject.tag == "Player") {
             
         barrel1.gameObject.SetActive(true); 
@@ -73,7 +73,7 @@ public class ib_CheckBox_rollBarr : MonoBehaviour
         rigidbody2.useGravity = true;
         rigidbody3.useGravity = true;
 
-        Debug.Log("Collider check");
+       
  
 
             if (touch != true && sheepPos.z < 900)
