@@ -245,7 +245,7 @@ public class tl_controller : LivingCreature
         camera.transform.parent = transform;
 
         //Eier werfen
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && ib_StaticVar._eggs > 0)
         {
             GameObject egg = objectPooler.SpawnFromPool("Egg", eggSpawn.transform.position, eggSpawn.transform.rotation);
             Vector3 direction = Quaternion.AngleAxis(forceAngle, eggSpawn.transform.right) * eggSpawn.transform.forward;
@@ -273,7 +273,7 @@ public class tl_controller : LivingCreature
                 SceneManager.LoadScene("ib_loose");
             }
         }
-        if (ib_StaticVar._lives < 0 || ib_StaticVar._score < 0)
+        if (ib_StaticVar._lives < 0 || ib_StaticVar._score < 0 || ib_StaticVar._eggs < 0)
         {
             SceneManager.LoadScene("ib_loose");
         }
