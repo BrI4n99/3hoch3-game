@@ -6,16 +6,22 @@ public class kjg_kamerafahrt : MonoBehaviour
 {
     public GameObject vCam1;
     public GameObject vCam2;
+
     private float zeit;
 
     void Start()
     {
         vCam1.SetActive(true);
         vCam2.SetActive(false);
+        StartCoroutine(startSound());
 
     }
+    IEnumerator startSound() {
+        yield return new WaitForSeconds(1f);
+        GetComponent<AudioSource>().Play();
+    }
 
-    void Update()
+        void Update()
     {
         zeit += Time.deltaTime;
         if (zeit > 0.5f) {

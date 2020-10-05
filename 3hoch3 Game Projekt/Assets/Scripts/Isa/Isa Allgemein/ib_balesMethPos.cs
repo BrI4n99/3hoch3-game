@@ -13,7 +13,7 @@ public class ib_balesMethPos : MonoBehaviour
     public GameObject fence;
     public GameObject mushroom;
 
-    private static float carHoehe;
+    
 
     // Möhren
     public static Vector3[] carPos = new Vector3[] {    new Vector3(-40f, 1f , 0f),
@@ -59,22 +59,39 @@ public class ib_balesMethPos : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        carHoehe = Random.Range(0.1f, 2f);
+        
         // Random Bool
-        int rand = Random.Range(0, 2);
-
-        if (rand == 1)
-        {
-            randBool = true;
-        }
-        else randBool = false;
+        
 
 
 
     }
 
+    public static bool createRandBool() {
+        int rand = Random.Range(0, 5);
+
+        if (rand <= 1)
+        {
+            randBool = true;
+        }
+        else randBool = false;
+
+        return randBool;
+    }
 
 
+
+
+    public static float carHoehe() { 
+        return Random.Range(0.1f, 2f);
+
+    }
+
+    public static float carBreite()
+    {
+        return Random.Range(-2.1f, 4f);
+
+    }
 
     // Update is called once per frame
     void Update()
@@ -171,7 +188,7 @@ public class ib_balesMethPos : MonoBehaviour
         void instanzCar(GameObject child, GameObject neu, string name, int index)
         {
             float pX = carPos[index].x; float pY = carPos[index].y; float pZ = carPos[index].z;
-            Vector3 realPos = new Vector3(pX, pY + hoehe + carHoehe, pZ + z);
+            Vector3 realPos = new Vector3(pX + carBreite(), pY + hoehe + carHoehe(), pZ + z);
             GameObject neuesObjekt = Instantiate(child, parentObj.transform, false);
             neuesObjekt.transform.Translate(realPos);
             neuesObjekt.name = string.Format(name);

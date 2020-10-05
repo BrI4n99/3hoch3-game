@@ -30,7 +30,7 @@ public class ib_mainMenu : MonoBehaviour
 
 
     public void QuitMenu() {
-        UnityEditor.EditorApplication.isPlaying = false; // später löschen
+        //UnityEditor.EditorApplication.isPlaying = false; // später löschen
         Application.Quit();
     }
 

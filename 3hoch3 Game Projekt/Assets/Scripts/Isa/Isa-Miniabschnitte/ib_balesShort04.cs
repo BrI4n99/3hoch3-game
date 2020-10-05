@@ -21,7 +21,7 @@ public class ib_balesShort04 : MonoBehaviour
         int i = 1; // Anzahl der Hindernisse
 
         meth.hoch(ib_balesMethPos.posX[Random.Range(0, 3)], ib_balesMethPos.posY[0], ib_balesMethPos.abstand*i, false, true, gameObject); i++;
-        meth.lang(ib_balesMethPos.posX[Random.Range(0, 3)], ib_balesMethPos.posY[0], ib_balesMethPos.abstand*i, ib_balesMethPos.randBool, true, gameObject); 
+        meth.lang(ib_balesMethPos.posX[Random.Range(0, 3)], ib_balesMethPos.posY[0], ib_balesMethPos.abstand*i, ib_balesMethPos.createRandBool(), true, gameObject); 
         
        
 

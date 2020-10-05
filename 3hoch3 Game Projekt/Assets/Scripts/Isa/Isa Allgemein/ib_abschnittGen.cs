@@ -61,7 +61,7 @@ public class ib_abschnittGen : MonoBehaviour
         if (ib_StaticVar.mainPartCounter == 0)
         {
             ib_StaticVar.heuLang[0] = randHeuLang;
-            // Debug.Log("heulang[" + ib_StaticVar.mainPartCounter + "] ist gleich " + randHeuLang);
+            Debug.Log("Beweis Zufälligkeit: heulang[" + ib_StaticVar.mainPartCounter + "] ist gleich " + randHeuLang);
             ib_StaticVar.heuKurz[0] = randHeuKurz;
             ib_StaticVar.hindernis[0] = randHindernis;
             ib_StaticVar.eier[0] = randEgg;
@@ -91,7 +91,7 @@ public class ib_abschnittGen : MonoBehaviour
                     randEgg = Random.Range(0, actionNeu.Count);
                 }
                 ib_StaticVar.heuLang[ib_StaticVar.mainPartCounter] = randHeuLang;
-               //  Debug.Log("heulang[" + ib_StaticVar.mainPartCounter + "] ist gleich " + randHeuLang);  // Zufällige Indices anzeigen lassen
+                Debug.Log("Beweis Zufälligkeit: heulang[" + ib_StaticVar.mainPartCounter + "] ist gleich " + randHeuLang);  // Zufällige Indices anzeigen lassen
                 ib_StaticVar.heuKurz[ib_StaticVar.mainPartCounter] = randHeuKurz;
                 ib_StaticVar.hindernis[ib_StaticVar.mainPartCounter] = randHindernis;
                 ib_StaticVar.eier[ib_StaticVar.mainPartCounter] = randEgg;

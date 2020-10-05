@@ -48,6 +48,11 @@ public class kjg_huhn2 : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         up = true;
     }
+
+    IEnumerator deactiveHuhn() {
+        yield return new WaitForSeconds(5f);
+        gameObject.SetActive(false);
+    }
     //Das Huhn läuft die verschiedenen Ziele der Reihe nach ab und kommt somit selbst zum Ausgang, wo es auf das Schaf wartet
     void Update()
     {
@@ -60,6 +65,7 @@ public class kjg_huhn2 : MonoBehaviour
                     Debug.Log("tür ist auf");
                     zaehlerGO = 1;
                 }
+                GetComponent<AudioSource>().Play();
                 break;
 
             case 1:
@@ -261,7 +267,7 @@ public class kjg_huhn2 : MonoBehaviour
                 }
                 break;
             case 9:
-                zeit = Time.deltaTime;
+                
                 sec = 0.3f;
                 //Hovering / Floating
                 if (up)
@@ -273,10 +279,13 @@ public class kjg_huhn2 : MonoBehaviour
                     StartCoroutine(jumpDown(sec));
                 }
 
-                if (zeit > 5) {
-                    gameObject.SetActive(false);
-                }
+                StartCoroutine(deactiveHuhn());
                 break;
+        }
+
+        if (kjg_sceneChanger.warDraussen)
+        {
+            gameObject.SetActive(false);
         }
     }
 }

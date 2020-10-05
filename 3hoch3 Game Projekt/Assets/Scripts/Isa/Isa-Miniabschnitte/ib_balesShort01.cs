@@ -16,7 +16,7 @@ public class ib_balesShort01 : MonoBehaviour
         
         // Methodenaufrufe
          meth.drei(ib_balesMethPos.posX[Random.Range(0, 3)],   ib_balesMethPos.posY[0], (ib_balesMethPos.abstand ) * i - 10, gameObject);          i++;                                                      
-         meth.breit(ib_balesMethPos.posX[Random.Range(0, 3)],  ib_balesMethPos.posY[0], (ib_balesMethPos.abstand ) * i - 10, ib_balesMethPos.randBool,  true, gameObject);
+         meth.breit(ib_balesMethPos.posX[Random.Range(0, 3)],  ib_balesMethPos.posY[0], (ib_balesMethPos.abstand ) * i - 10, ib_balesMethPos.createRandBool(),  true, gameObject);
        
     }
     

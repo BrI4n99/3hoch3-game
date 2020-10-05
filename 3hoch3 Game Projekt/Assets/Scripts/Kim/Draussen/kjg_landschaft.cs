@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class kjg_landschaft : MonoBehaviour
 {
-    //Landschaft für draußen erstellen
+    /*Landschaft für draußen erstellen
+     * in Anlehung an das Tutorial https://www.youtube.com/watch?v=64NblGkAabk&t=628s&ab_channel=Brackeys
+     */
 
     Mesh terrain;
     GameObject terrainObject;
@@ -102,5 +104,5 @@ public class kjg_landschaft : MonoBehaviour
             countUV += 4;
         }*/
 
-   }
+}
 }

@@ -20,8 +20,8 @@ public class ib_balesSimple02 : MonoBehaviour
         if (lr == 1) lr = 2;
        
        
-        meth.breit(ib_balesMethPos.posX[0+lr],     ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i,   true, ib_balesMethPos.randBool, gameObject);  i++;   lr = -lr; 
-        meth.hoch(ib_balesMethPos.posX[Random.Range(1, 3)],               ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i, false, ib_balesMethPos.randBool, gameObject);                                        i++;   
+        meth.breit(ib_balesMethPos.posX[0+lr],     ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i,   true, ib_balesMethPos.createRandBool(), gameObject);  i++;   lr = -lr; 
+        meth.hoch(ib_balesMethPos.posX[Random.Range(1, 3)],               ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i, false, false, gameObject);      i++;   
         meth.drei(ib_balesMethPos.posX[2+lr],     ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i, gameObject);                     i++; lr = -lr; 
         meth.breit(ib_balesMethPos.posX[0],     ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i,   false, true, gameObject);  
         

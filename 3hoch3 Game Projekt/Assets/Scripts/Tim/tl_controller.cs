@@ -17,7 +17,7 @@ public class tl_controller : LivingCreature
     //Camera Settings
     [Header("Camera Settings")]
     public GameObject camera;
-    public float camera_height = 2f;
+    public float camera_height;
 
     //Werte für das Werfen der Eier
     [Header("Throwing Settings")]
@@ -176,7 +176,7 @@ public class tl_controller : LivingCreature
         transform.rotation = spawnpoint.transform.rotation;
 
         //Kamera
-        camera.transform.position = new Vector3(transform.position.x, camera_height, transform.position.z - 0.8f);
+        camera.transform.position = new Vector3(transform.position.x, camera_height, transform.position.z - 1.5f);
     }
 
     // Update is called once per frame
@@ -245,7 +245,7 @@ public class tl_controller : LivingCreature
         camera.transform.parent = transform;
 
         //Eier werfen
-        if (Input.GetButtonDown("Fire1") && ib_StaticVar._eggs > 0)
+        if (Input.GetButtonDown("Fire1"))
         {
             GameObject egg = objectPooler.SpawnFromPool("Egg", eggSpawn.transform.position, eggSpawn.transform.rotation);
             Vector3 direction = Quaternion.AngleAxis(forceAngle, eggSpawn.transform.right) * eggSpawn.transform.forward;
@@ -273,7 +273,7 @@ public class tl_controller : LivingCreature
                 SceneManager.LoadScene("ib_loose");
             }
         }
-        if (ib_StaticVar._lives < 0 || ib_StaticVar._score < 0 || ib_StaticVar._eggs < 0)
+        if (ib_StaticVar._lives < 0 || ib_StaticVar._score < 0)
         {
             SceneManager.LoadScene("ib_loose");
         }

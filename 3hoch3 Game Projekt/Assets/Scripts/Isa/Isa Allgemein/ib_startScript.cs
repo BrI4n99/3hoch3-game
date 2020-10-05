@@ -21,8 +21,8 @@ public class ib_startScript : MonoBehaviour
  
         meth = ib_balesMethPos.Instance;
         float i = 3.4f; // Anzahl der Hindernisse
-        meth.breit(ib_balesMethPos.posX[Random.Range(0, 3)] , ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i-35, false, false, gameObject);  i++;
-        meth.einfach(ib_balesMethPos.posX[Random.Range(0, 3)] , ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i-35, true, ib_balesMethPos.randBool, gameObject);  i++;
+        meth.breit(ib_balesMethPos.posX[Random.Range(0, 3)] , ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i-35, false, ib_balesMethPos.createRandBool(), gameObject);  i++;
+        meth.einfach(ib_balesMethPos.posX[Random.Range(0, 3)] , ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i-35, true, false, gameObject);  i++;
         
 
         // Zufällige Reihenfolge

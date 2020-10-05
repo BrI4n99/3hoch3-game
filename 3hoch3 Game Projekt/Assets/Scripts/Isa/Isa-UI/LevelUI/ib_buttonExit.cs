@@ -22,7 +22,7 @@ public class ib_buttonExit : MonoBehaviour
 
     public void doExitGame()
     {
-        UnityEditor.EditorApplication.isPlaying = false; // später löschen
+        //UnityEditor.EditorApplication.isPlaying = false; // später löschen
         Application.Quit();
         // Debug.Log("EXIT");
     }

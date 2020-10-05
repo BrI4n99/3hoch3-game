@@ -136,7 +136,7 @@ public class ib_LevelUI : MonoBehaviour
 
         public void doExitGame()
     {
-        UnityEditor.EditorApplication.isPlaying = false; // später löschen
+        //UnityEditor.EditorApplication.isPlaying = false; // später löschen
         Application.Quit();
     }
 

@@ -31,7 +31,7 @@ public class ib_PLAYaGAIN : MonoBehaviour
 
     public void QuitMenu()
     {
-       UnityEditor.EditorApplication.isPlaying = false; // später löschen
+       //UnityEditor.EditorApplication.isPlaying = false; // später löschen
         Application.Quit();
     }
 
@@ -52,15 +52,15 @@ public class ib_PLAYaGAIN : MonoBehaviour
             datenspeicher.setLevel1Values();
         }
 
-        if (level == "kjg-szene" && ib_StaticVar.level1 == false) {
+        /* if (level == "kjg-szene" && ib_StaticVar.level1 == false) {
             datenspeicher.setLevel2Values();
         }
 
         if (level == "tl-szene" && ib_StaticVar.level1 == false && ib_StaticVar.level2 == false) {
             datenspeicher.setLevel2Values();
-        }
+        }*/
 
-
+        datenspeicher.setLevel2Values();
         SceneManager.LoadScene(level);
     }
 }

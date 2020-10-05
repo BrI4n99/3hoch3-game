@@ -20,9 +20,9 @@ public class ib_balesMid : MonoBehaviour
         if (lr == 1) lr = 2;
         
         meth.drei(ib_balesMethPos.posX[0],     ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i, gameObject);  i++;   lr = -lr; 
-        meth.hoch(ib_balesMethPos.posX[Random.Range(0, 3)],               ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i, true, false, gameObject);                                        i++;   
+        meth.hoch(ib_balesMethPos.posX[Random.Range(0, 3)],               ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i, false, false, gameObject);                                        i++;   
         meth.vier(ib_balesMethPos.posX[2+lr],     ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i, gameObject);                     i++; lr = -lr; 
-        meth.breit(ib_balesMethPos.posX[0],     ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i,   true, ib_balesMethPos.randBool, gameObject);  i++;
+        meth.breit(ib_balesMethPos.posX[0],     ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i,   true, true, gameObject);  i++;
         meth.fuenf(ib_balesMethPos.posX[Random.Range(0, 3)], ib_balesMethPos.posY[0], ib_balesMethPos.abstand * i, gameObject); 
 
         // Zaunelemente - erstellen

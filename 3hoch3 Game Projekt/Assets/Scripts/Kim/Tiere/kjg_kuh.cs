@@ -21,8 +21,11 @@ public class kjg_kuh : MonoBehaviour
     public static bool folgen;
     public static bool hasKuh;
     public static bool kuhFirst;
+ 
+    private int countPlay;
     private void Start()
     {
+        countPlay = 0;
         gameObject.SetActive(false);
         up = true;
     }
@@ -46,8 +49,14 @@ public class kjg_kuh : MonoBehaviour
     {
         if ((other.gameObject.name == "SheepWhite" && !kjg_schwein.hasSchwein) || (other.gameObject.name == "SheepWhite" && kjg_tiereVorTuer.schweinVorTuer))
         {
+            countPlay++;
             folgen = true;
             hasKuh = true;
+            if (countPlay == 1) {
+                GetComponent<AudioSource>().Play();
+
+            }
+
         }
         else if(other.gameObject.name == "SheepWhite" && kjg_schwein.hasSchwein){
             folgen = false;
